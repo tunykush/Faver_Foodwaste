@@ -183,18 +183,64 @@
   }
 
   .container {
-    --max-width: 1220px ;
-    --padding:1rem ;
-
-    width: min(var(--max-width),100% - (var(--padding)*2));
-    margin-inline:0 auto;
-    padding:0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
-
+  
   .even-columns {
-    display: grid;
-    gap: 1rem;
+    display: flex;
+    width: 100%;
   }
+  
+  .image_challenge {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+      "a b"
+      "a c";
+    flex: 1;
+  }
+  
+  .item1 {
+    grid-area: a;
+  }
+  
+  .item2 {
+    grid-area: b;
+  }
+  
+  .item3 {
+    grid-area: c;
+  }
+  
+  .faver_challenge {
+    flex: 1;
+  }
+  
+
+  .dark-image {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, brightness 0.7s ease;
+  }
+
+  .dark-image:hover {
+  filter: grayscale(100%) brightness(40%);
+}
+
+.fs {
+  font-size: 1.5em; /* Adjust as necessary */
+}
+
+.secondary-heading {
+  font-size: 2em; /* Adjust as necessary */
+}
+
+.fw-bold {
+  font-weight: bold;
+}
 
   @media (min-width: 50em) {
     .even-column {
@@ -282,6 +328,7 @@
     height: 50px;
     width: auto;
     transition: transform 0.3s ease;
+    margin-top: 15px;
   }
 
   .logo-nav-container {
@@ -310,6 +357,7 @@
     align-items: center;
     flex: 1; /* Take up remaining space */
     display: flex;
+    margin-top: 15px;
   }
 
   .nav__list {
@@ -439,7 +487,7 @@
     }
 
     .image-side img {
-      width: 100%; /* Ensure the image scales nicely on smaller screens */
+      width: 100%; 
     }
   }
 
