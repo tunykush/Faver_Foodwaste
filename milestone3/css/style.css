@@ -98,10 +98,6 @@
     margin-bottom: 0.5rem;
   }
 
-  /* A elements that don't have a class get default styles */
-  a:not([class]) {
-    text-decoration-skip-ink: auto;
-  }
 
   /* Make images easier to work with */
   img,
@@ -128,7 +124,7 @@
     }
   }
 
-  /* Ultility classes*/
+  /* Constant classes*/
 
   .text-primary-400 {
     color :var(--clr-rpimary-400)
@@ -304,192 +300,6 @@
   }
 
 
-  /* Base styles and reset */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Be Vietnam Pro', sans-serif;
-  }
-
-  body, html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .nav__logo img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-    margin-top: 15px;
-  }
-
-  .logo-nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .nav__logo:hover img {
-    transform: scale(0.7);
-    flex: 0 1 auto; 
-  }
-
-  .nav {
-    display: flex;
-    justify-content: center; /* Center the nav */
-    align-items: center;
-    gap: 2rem;
-    flex: 1 1 100%; 
-  }
-
-  .nav__menu {
-    display: flex;
-    justify-content: space-around; /* Equal spacing between items */
-    align-items: center;
-    flex: 1; /* Take up remaining space */
-    display: flex;
-    margin-top: 15px;
-  }
-
-  .nav__list {
-    display: flex;
-    list-style: none;
-    width: 100%; /* Ensure full width for equal spacing */
-    justify-content: space-evenly; /* Equal spacing between nav items */
-    margin-left: auto;
-  }
-
-  .nav__item {
-    position: relative;
-    margin-right: 2rem;
-  }
-
-  .nav__item::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #525252;
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s;
-  }
-
-  .nav__item:hover::before {
-    width: 100%;
-  }
-
-  .nav__link {
-    text-decoration: none;
-    color: #1e1e1e;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-
-  .nav__link:hover {
-    color: #7a7a7a;
-  }
-
-  .nav__close {
-    display: none;
-    cursor: pointer;
-  }
-
-  .button {
-    background-color: #1a1a1a;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.4s;
-  }
-
-  .button:hover {
-    background-color: #7a7a7a;
-  }
-
-  @media (max-width: 768px) {
-    .nav {
-      justify-content: space-between; /* Adjust for mobile view */
-    }
-
-    .nav__menu {
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .nav__menu.active {
-      transform: translateX(0);
-    }
-
-    .nav__item {
-      margin: 10px 0;
-    }
-
-    .nav__close {
-      display: block;
-    }
-  }
-
-  /* Content section styles */
-  .content-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2rem 0;
-  }
-
-  .text-side {
-    flex: 1;
-    max-width: 50%;
-  }
-
-  .image-side {
-    flex: 1;
-    max-width: 50%;
-    text-align: center;
-  }
-
-  .image-side img {
-    width: 100%; /* Adjusted to use full width of the container */
-    max-width: 600px; /* Max width for larger displays */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  @media (max-width: 768px) {
-    .content-section {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .text-side, .image-side {
-      max-width: 100%;
-    }
-
-    .image-side img {
-      width: 100%; 
-    }
-  }
 
     /* Additional padding for text containers */
   .text-container {
