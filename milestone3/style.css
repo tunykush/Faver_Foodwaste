@@ -300,7 +300,7 @@
     -moz-box-shadow: 0px 0px 89px 0px rgba(66, 66, 66, 0.9);
     box-shadow: 0px 0px 89px 0px rgba(81, 81, 81, 0.9);
     transition-delay: 250ms;
-    border-radius: 5px; /* Change to a more noticeable border-radius on hover */
+    border-radius: 5px; /* Change to a more not   iceable border-radius on hover */
   }
 
 
