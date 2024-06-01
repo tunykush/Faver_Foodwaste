@@ -249,3 +249,27 @@
   .text-container {
     padding: 20px;
   }
+
+  /*cut cost*/
+  .columns {
+    float: left;
+    display: flex;
+    gap: 5%;
+  }
+
+  .row {
+    content: "";
+    display: table;
+    clear: both;
+
+  }
+
+  .ml-10p {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .w-30p {
+    width: 30%;
+  }
