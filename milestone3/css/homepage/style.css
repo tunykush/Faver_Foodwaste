@@ -256,21 +256,31 @@
     float: left;
     display: flex;
     gap: 5%;
+    box-shadow: inset;
   }
-
+  
   .row {
     content: "";
     display: table;
     clear: both;
-
   }
-
+  
   .ml-10p {
     margin: 10px;
     display: flex;
     justify-content: center;
   }
-
+  
   .w-30p {
     width: 30%;
   }
+  
+  /* Hover zoom effect */
+  .hover-zoom {
+    transition: transform 0.5s ease;
+  }
+  
+  .hover-zoom:hover {
+    transform: scale(0.85); 
+  }
+  
