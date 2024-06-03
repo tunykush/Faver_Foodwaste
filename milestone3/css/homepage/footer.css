@@ -38,10 +38,11 @@ ul {
 }
 
 .footer-col {
-    width: 23%; /* Adjusted width to fit spacing */
+    width: 27%;
     padding: 0 100px;
-    
 }
+    
+
 
 .footer-col h4 {
     font-size: 18px;
@@ -138,7 +139,7 @@ ul {
 	margin-top: 20px;
 	align-items: center;
     position: absolute; /* Position the logo */
-    right: 20%; /* center */
+    right: 10%; 
     bottom: 50%;
     transform: translate(-50%, 50%);
 }
