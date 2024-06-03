@@ -128,3 +128,17 @@ ul {
         width: 100%;
     }
 }
+
+.footer-bottom {
+	padding: 10px 0;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 300;
+	font-size: 16px;
+	margin-top: 20px;
+	align-items: center;
+    position: absolute; /* Position the logo */
+    right: 20%; /* center */
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
