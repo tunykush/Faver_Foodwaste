@@ -12,14 +12,19 @@ body {
 }
 
 .container {
-    max-width: 1170px;
-    margin: auto;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Center content vertically */
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Added to space out the columns */
+    justify-content: center; /* Center columns horizontally */
+    width: 100%; /* Take full width */
 }
 
 ul {
@@ -28,13 +33,14 @@ ul {
 
 .footer {
     background-color: #1c1c1c;
-    padding: 70px 0;
+    padding: 30px 0;
+    position: relative; /* Position logo absolutely */
 }
 
 .footer-col {
     width: 23%; /* Adjusted width to fit spacing */
-    padding: 0 15px;
-    margin-right: 20px; /* Added margin to create space between columns */
+    padding: 0 100px;
+    
 }
 
 .footer-col h4 {
@@ -69,8 +75,8 @@ ul {
     font-weight: 300;
     color: #bbbbbb;
     display: block;
-    transition: all 0.3s ease;
-    white-space: nowrap; /* Added to prevent wrapping */
+    transition: all 0.5s ease;
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 .footer-col ul li a:hover {
@@ -78,22 +84,35 @@ ul {
     padding-left: 8px;
 }
 
-.footer-col .social-links a {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(68, 68, 68, 0.2);
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    color: #ffffff;
-    transition: all 0.5s ease;
+.headerTextFooter {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 4rem;
+    margin-right: 1rem; 
+    display: flex;
+    align-items: center;
+    position: absolute; /* Position the logo */
+    left: 20%; /* center */
+    bottom: 50%;
+    transform: translate(-50%, 50%);
 }
 
-.footer-col .social-links a:hover {
-    color: #24262b;
-    background-color: #ffffff;
+
+.headerTextFooter img {
+    margin-right: 0.7rem; /* Reduced space between logo and text */
+    height: auto; /* Adjust height */
+    width: auto; /* Adjust width */
+    max-height: 2rem;
+    max-width: 2rem; 
+}
+
+.headerTextFooter h2 {
+    color: #ffffff;
+}
+
+.headerTextFooter h2:active {
+    color: #aaaaaa; /* when clicked */
 }
 
 /*responsive*/
