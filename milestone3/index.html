@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/homepage/style.css">
   <link rel="stylesheet" href="css/homepage/navbar.css">
   <link rel="stylesheet" href="css/homepage/homesec1.css">
+  <link rel="stylesheet" href="css/homepage/loadbar.css">
   <link rel="stylesheet" href="css/homepage/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +19,11 @@
 </head>
 
 <body>
-  <header class="primary-header">
-    <div class="container">
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  <header class="primary-header" >
+    <div class="container" id="content">
       <div class="logo-nav-container">
         <a href="/index.html" class="nav__logo"><img src="image/faver logo black.svg" alt="Faver Logo"></a>
         <!-- <nav class="menu">
