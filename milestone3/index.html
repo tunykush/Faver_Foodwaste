@@ -1,173 +1,240 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/faver logo.svg" />
-  <link rel="stylesheet" href="css/homepage/style.css">
-  <link rel="stylesheet" href="css/homepage/navbar.css">
-  <link rel="stylesheet" href="css/homepage/homesec1.css">
-  <link rel="stylesheet" href="css/homepage/loadbar.css">
-  <link rel="stylesheet" href="css/homepage/footer.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Faver App</title>
-</head>
-
-<body>
-  <div id="progress-container">
-    <div id="progress-bar"></div>
-  </div>
-  <header class="primary-header">
-    <div class="container" id="content">
-      <div class="logo-nav-container">
-        <a href="/index.html" class="nav__logo"><img src="image/faver logo black.svg" alt="Faver Logo"></a>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/faver logo.svg" />
+    <link rel="stylesheet" href="./css/homepage/style.css" />
+    <link rel="stylesheet" href="./css/homepage/navbar.css" />
+    <link rel="stylesheet" href="./css/homepage/homesec1.css" />
+    <link rel="stylesheet" href="./css/homepage/barchar.css" />
+    <link rel="stylesheet" href="./css/homepage/footer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faver App</title>
+    <style></style>
+    <header class="primary-header">
+      <div class="container">
         <div class="logo-nav-container">
-          <div class="nav__menu container" id="nav-menu">
-            <nav class="nav menu">
-              <ol class="nav__list">
-
-                <li class="nav__item menu-item"><a href="#" class="nav__link">Mission Statement</a></li>
-
-                <li class="nav__item menu-item"><a href="#" class="nav__link">Explore by Country</a>
-                  <ol class="sub-menu">
-                    <li class="menu-item"><a href="#0">Task-2a</a></li>
-                    <li class="menu-item"><a href="/html/task2b.html">Task-2b</a></li>
-                  </ol>
-                </li>
-
-                <li class="nav__item menu-item"><a href="#" class="nav__link">Explore by Food</a>
-                  <ol class="sub-menu">
-                    <li class="menu-item"><a href="#0">Task-3a</a></li>
-                    <li class="menu-item"><a href="/html/task3b.html">Task-3b</a></li>
-                  </ol>
-                </li>
-                <li class="nav__item menu-item"><a href="#" class="nav__link">Career</a></li>
-                <li class="nav__item menu-item"><a href="#" class="nav__link">About Us</a></li>
-              </ol>
-            </nav>
+          <a href="/index.html" class="nav__logo"
+            ><img src="image/faver logo black.svg" alt="Faver Logo"
+          /></a>
+          <div class="logo-nav-container">
+            <div class="nav__menu container" id="nav-menu">
+              <nav class="nav menu">
+                <ol class="nav__list">
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Mission Statement</a>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Country</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="#0">Task-2a</a></li>
+                      <li class="menu-item">
+                        <a href="/html/task2b.html">Task-2b</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Food</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="#0">Task-3a</a></li>
+                      <li class="menu-item"><a href="#0">Task-3b</a></li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Career</a>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">About Us</a>
+                  </li>
+                  <!-- Nav tab -->
+                </ol>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
+    </header>
+  </head>
+  <body>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
     </div>
-  </header>
-
-  <main>
-    <section>
-      <div class="container">
-        <div class="content-section">
-          <div class="text-side">
-            <h1 class="fs-primary-heading fw-bold">
-              Transforming Our Approach to Food Sustainability
-            </h1>
-            <p>Introducing the purpose with a captivating title such as "Gaining Insight into Food Loss and Waste:
-              Revealing the Facts, Inspiring Transformation".</p>
-            <button class="button">Explore Data</button>
+    <main class="container" id="content">
+      <section>
+        <div class="container">
+          <div class="content-section">
+            <div class="text-side">
+              <h1 class="fs-primary-heading fw-bold">
+                Transforming Our Approach to Food Sustainability
+              </h1>
+              <p>
+                Introducing the purpose with a captivating title such as
+                "Gaining Insight into Food Loss and Waste: Revealing the Facts,
+                Inspiring Transformation".
+              </p>
+              <button class="button">Explore Data</button>
+            </div>
+            <div class="image-side">
+              <img
+                src="image/Macbook Air (2022).svg"
+                alt="video demonstration"
+              />
+            </div>
           </div>
-          <div class="image-side">
-            <img src="image/Macbook Air (2022).svg" alt="video demonstration">
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="even-columns">
+            <div class="image_challenge">
+              <img
+                src="image/board management color.svg"
+                alt="board 1"
+                class="item1 dark-image"
+              />
+              <img
+                src="image/internet board management color.svg"
+                alt="board 2"
+                class="item2 dark-image"
+              />
+              <img
+                src="image/tick hand color.svg"
+                alt="hand"
+                class="item3 dark-image"
+              />
+            </div>
+            <div class="faver_challenge">
+              <h2 class="fs secondary-heading fw-bold">Faver’s Challenge</h2>
+              <p>
+                Faver optimizes food waste management throughout the food supply
+                chain. We help businesses and consumers make sustainable choices
+                with cutting-edge tracking technologies. Due to many concerns,
+                we analyzed supplier data. These analyses can help us attain
+                optimal results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="even-columns">
+            <div class="w-30p">
+              <h2 class="fs secondary-heading fw-bold">How Can Faver Help?</h2>
+              <p>
+                Provide a narrative of how Faver was founded, including the
+                inspiration behind the project and any pivotal moments in its
+                development. Mention significant milestones like major
+                achievements or awards.
+              </p>
+              <button class="button" data-type="inverted">About us</button>
+            </div>
+            <div style="margin-left: 2%">
+              <ul class="numbered-items columns" role="list">
+                <li>
+                  <img src="./image/cut_cost.svg" class="hover-zoom" alt="first pic"/>
+                  <h3 class="fs-600 fw-bold ml-10p">Cut Costs</h3>
+                  <p class="ml-10p"><img src="./image/green check tick.svg" alt="tick"/></p>
+                </li>
+                <li>
+                  <img src="./image/Reduce_waste.svg" class="hover-zoom" alt="second pic"/>
+                  <h3 class="fs-600 fw-bold ml-10p">Reduce Waste</h3>
+                  <p class="ml-10p"><img src="./image/green check tick.svg" alt="tick"/></p>
+                </li>
+                <li>
+                  <img src="./image/Efficiency.svg" class="hover-zoom" alt="third pic"/>
+                  <h3 class="fs-600 fw-bold ml-10p">Enhance Efficiency</h3>
+                  <p class="ml-10p"><img src="./image/green check tick.svg" alt="tick"/></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="carousel container">
+        <h2 class="fs-secondary-heading">Rating</h2>
+        <button class="button">Browse more</button>
+      </section>
+      <section class="cta | bg-primary-400 text neutral-100">
+        <div class="container">
+          <div class="even-columns">
+            <div>
+              <p class="fs-secondary-heading fw-bold">
+                The Perfect Place to Analyze your Food !
+              </p>
+            </div>
+            <button class="button" data-type="inverted">Get Started</button>
+          </div>
+        </div>
+      </section>
+      
+
+      <section class="bar bar-body">
+        <div class="card">
+          <div class="rating">
+            <h2>
+              <span class="counter" data-target="61.1">61.1</span><sup>%</sup><br><HTML>
+            </h2>
+            <div class ="block"></div>
           </div>
         </div>
       </div>
-    </section>
+
+      </section>
+    </main>
 
 
 
-    <section>
-      <div class="container">
-        <div class="even-columns">
-          <div class="image_challenge">
-            <img src="image/board management color.svg" alt="board 1" class="item1 dark-image">
-            <img src="image/internet board management color.svg" alt="board 2" class="item2 dark-image">
-            <img src="image/tick hand color.svg" alt="hand" class="item3 dark-image">
+
+
+
+
+
+
+
+        <footer class="footer">
+          <div class="container-footer">
+            <div class="row-footer">
+              <div class="footer-col">
+                <h4>Faver</h4>
+                <ul class="ul-list-style">
+                  <li><a href="#">About us</a></li>
+                  <li><a href="#">Mission Statement</a></li>
+                  <li><a href="#">Explore by Country</a></li>
+                  <li><a href="#">Explore by Food</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>get help</h4>
+                <ul class="ul-list-style">
+                  <li><a href="#">DOC</a></li>
+                  <li><a href="#">About us</a></li>
+                </ul>
+              </div>
+              <a href="/index.html" class="footerLink">
+                <div class="headerTextFooter titleFont">
+                  <img src="/faver logo.svg" alt="logo" />
+                  <h2>FAVER</h2>
+                </div>
+              </a>
+              <p class="footer-bottom"><span>&copy;</span>2024 Australian Copyright</p>
+            </div>
           </div>
-          <div class="faver_challenge">
-            <h2 class="fs secondary-heading fw-bold">Faver’s Challenge </h2>
-            <p>Faver optimizes food waste management throughout the food supply chain.
-              We help businesses and consumers make sustainable choices with cutting-edge
-              tracking technologies. Due to many concerns, we analyzed supplier data. These analyses can
-              help us attain optimal results. </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section>
-      <div class="container">
-        <div class="even-columns">
-          <div class="w-30p">
-            <h2 class="fs secondary-heading fw-bold">How Can Faver Help?</h2>
-            <p>Provide a narrative of how Faver was founded,
-              including the inspiration behind the project and
-              any pivotal moments in its development.
-              Mention significant milestones like major achievements or awards.</p>
-            <button class="button" data-type="inverted">About us</button>
-          </div>
-          <div style="margin-left: 2%;">
-            <ul class="numbered-items columns" role="list">
-              <li>
-                <img src="./image/cut_cost.svg" class="hover-zoom" />
-                <h3 class="fs-600 fw-bold ml-10p">Cut Costs</h3>
-                <p class="ml-10p"><img src="./image/green check tick.svg" /></p>
-              </li>
-              <li>
-                <img src="./image/Reduce_waste.svg" class="hover-zoom" />
-                <h3 class="fs-600 fw-bold ml-10p">Reduce Waste</h3>
-                <p class="ml-10p"><img src="./image/green check tick.svg" /></p>
-              </li>
-              <li>
-                <img src="./image/Efficiency.svg" class="hover-zoom" />
-                <h3 class="fs-600 fw-bold ml-10p">Enhance Efficiency</h3>
-                <p class="ml-10p"><img src="./image/green check tick.svg" /></p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-
-
-
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col">
-          <h4>Faver</h4>
-          <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Mission Statement</a></li>
-            <li><a href="#">Explore by Country</a></li>
-            <li><a href="#">Explore by Food</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>get help</h4>
-          <ul>
-            <li><a href="#">DOC</a></li>
-            <li><a href="#">About us</a></li>
-          </ul>
-        </div>
-        <a href="/index.html" class="footerLink">
-          <div class="headerTextFooter titleFont">
-            <img src="/faver logo.svg" alt="logo" />
-            <h2>FAVER</h2>
-          </div>
-        </a>  
-        <p class="footer-bottom"><span>&copy;</span>2024 Australian Copyright</p>
-      </div>
-    </div>
-  </footer>
-  <h1></h1>
-  <script type="module" src="/main.js"></script>
-</body>
-
+      </footer>
+      <h1></h1>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/homepage/barchart.js"></script>
+    
+  </body>
 </html>

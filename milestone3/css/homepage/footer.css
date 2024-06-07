@@ -1,17 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body {
-    line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
-}
-
-* {
+footer {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container {
+.container-footer {
     width: 90%;
     height: 90%;
     display: flex;
@@ -20,14 +15,14 @@ body {
     flex-direction: column; /* Center content vertically */
 }
 
-.row {
+.row-footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center columns horizontally */
     width: 100%; /* Take full width */
 }
 
-ul {
+.ul-list-style {
     list-style: none;
 }
 
