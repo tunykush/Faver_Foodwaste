@@ -1,0 +1,45 @@
+.content {
+    padding-top: 6rem;
+    padding-left: 6rem;
+}
+
+  .content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 7rem 0;
+  }
+
+  .text-side {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .image-side {
+    flex: 1;
+    max-width: 50%;
+    text-align: center;
+  }
+
+  .image-side img {
+    width: 75%; /* Adjusted to use full width of the container */
+    max-width: 400px; /* Max width for larger displays */
+    height: auto; /* Maintain aspect ratio */
+    padding-left: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .content-section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .text-side, .image-side {
+      max-width: 100%;
+    }
+
+    .image-side img {
+      width: 100%; 
+    }
+  }
