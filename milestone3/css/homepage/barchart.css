@@ -1,71 +1,89 @@
-
-.bar{
+.bar {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-  }
-  
-  .bar-body
-  {
-      display:flex;
-      justify-content: center;
-      align-items: right;
-      min-height: 40vh;
-  }
-  .card
-  {
-      position: relative;
-      width: 200px;
-      height: 200px;
-  }
-  .card .rating 
-  {
-      position: relative;
-      width: 100%;
-      height: 100%;
-  }
-  .card .rating .block
-  {
-      position : absolute;
-      width: 2px;
-      height: 15px;
-      background: #000;
-      left: 50%;
-      transform-origin: 50% 100px;
-      transform: rotate(25deg);
-      animation:  animate 0.2s liner forwards;
-  }
-  @keyframes animate
-  {
-      to {
-          opacity: 1;
-      }
-  }
-  .card .rating .block:nth-child(-n+62) /* get +1 value up of given one*/
-  {
-      background: #0f0;
-      box-shadow: 0 0 15px #0f0, 0 0 0px #0f0;
-  }
-  .card .rating h2
-  {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color:rgb(214, 214, 214);
-      font-size: 1.2em;
-      text-align: center;
-      line-height: 1.5em;
-  }
-  .card .rating h2 span 
-  {
-      font-size: 2.5em;
-      font-weight: 700;
-  }
-  .card .rating h2 sup
-  {
-      font-size: 1.5em;
-      font-weight: 300;
-  
-  }
+}
+
+.bar-body {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Changed to center */
+    min-height: 40vh;
+    position: relative; /* Added to position elements relatively */
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    z-index: 2; /* Ensure card is above the image */
+}
+
+.card .rating {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card .rating .block {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #000;
+    left: 50%;
+    transform-origin: 50% 100px;
+    transform: rotate(25deg);
+    animation: animate 0.2s linear forwards;
+}
+
+@keyframes animate {
+    to {
+        opacity: 1;
+    }
+}
+
+.card .rating .block:nth-child(-n+62) /* get +1 value up of given one */ {
+    background: #0f0;
+    box-shadow: 0 0 15px #0f0, 0 0 0px #0f0;
+}
+
+.card .rating h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(214, 214, 214);
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+.card .rating h2 span {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.card .rating h2 sup {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.seeds-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure image is below the card */
+}
+
+.description {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space between paragraph and chart */
+    width: 100%; /* Adjust as needed */
+    max-width: 800px; /* Adjust as needed */
+}
+.per-lost{
+    margin-right: 40px;
+}
