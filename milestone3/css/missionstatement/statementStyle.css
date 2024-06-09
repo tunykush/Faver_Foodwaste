@@ -5,7 +5,6 @@
 
 #mission-img:hover {
   transform: rotate(360deg);
-  filter: invert(20%) hue-rotate(85deg) brightness(200%) contrast(20%);
 }
 
 #mission-img {
