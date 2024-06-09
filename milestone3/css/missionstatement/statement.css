@@ -218,15 +218,6 @@ svg {
 }
 
 
-.dark-image {
-  filter: grayscale(100%);
-  transition: filter 0.5s ease, brightness 0.7s ease;
-}
-
-.dark-image:hover {
-filter: grayscale(100%) brightness(40%);
-}
-
 .fs {
 font-size: 1.5em; /* Adjust as necessary */
 }
