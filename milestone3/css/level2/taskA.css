@@ -1,0 +1,116 @@
+.text-center {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.input-container {
+    background-color: #e0e0e0;
+    padding: 1.25rem; 
+    border-radius: 0.625rem; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem; 
+    max-width: 50rem; 
+    margin: 0 auto; 
+    transition: 1s;
+}
+
+.input-container:hover {
+    transform: scale(1.1);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 0.3125rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.625rem; 
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem; 
+}
+
+.sort-group {
+    grid-column: span 3; 
+    display: flex;
+    align-items: center;
+}
+
+.sort-group label {
+    margin-right: 0.625rem;
+}
+
+.sort-group div {
+    display: flex;
+    align-items: center;
+}
+
+.sort-group input {
+    margin-right: 0.3125rem; 
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: span 3;
+}
+
+button#generate {
+    padding: 0.625rem 1.25rem; 
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0.3125rem; 
+    cursor: pointer;
+}
+
+button#generate:hover {
+    background-color: #333;
+}
+
+.data-table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0.625rem;
+    transition: 1s;
+}
+
+.data-table-container:hover {
+    transform: scale(1.1);
+}
+
+.data-table {
+    width: 100%;
+    max-width: 56.25rem; 
+    margin: 2rem 0; 
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); 
+    border-radius: 0.625rem;
+    overflow: hidden; 
+    
+}
+
+
+.data-table th,
+.data-table td {
+    padding: 0.75rem; /* 12px */
+    border: 0.0625rem solid #aaa; /* 1px */
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #bbb;
+    font-weight: bold;
+    color: #333;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #ddd;
+}

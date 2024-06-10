@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/faver logo.svg" />
+    <link rel="stylesheet" href="../css/level2/style.css" />
+    <link rel="stylesheet" href="../css/homepage/navbar.css" />
+    <link rel="stylesheet" href="../css/level2/taskA.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faver App</title>
+  </head>
+  <body>
+    <header class="primary-header">
+      <div class="container">
+        <div class="logo-nav-container">
+          <a href="../index.html" class="nav__logo"
+            ><img src="../image/faver logo black.svg" alt="Faver Logo"
+          /></a>
+          <div class="logo-nav-container">
+            <div class="nav__menu container" id="nav-menu">
+              <nav class="nav menu">
+                <ol class="nav__list">
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Mission Statement</a>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Country</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="#0">Task-2a</a></li>
+                      <li class="menu-item">
+                        <a href="/html/task2b.html">Task-2b</a>
+                      </li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Food</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="#0">Task-3a</a></li>
+                      <li class="menu-item"><a href="#0">Task-3b</a></li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Career</a>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">About Us</a>
+                  </li>
+                  <!-- Nav tab -->
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="content-section">
+        <div class="text-center">
+          <h1 class="fs-primary-heading fw-bold" style="padding-top: 3rem">
+            Food Loss by Country
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-group">
+            <label for="country">Select Country:</label>
+            <select id="country" name="country">
+                <option value="">Country</option>
+                <!-- OPTIONS -->
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="commodity">Select Commodity:</label>
+            <select id="commodity" name="commodity">
+                <option value="">Commodity</option>
+                <!-- OPTIONS -->
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="start-year">Start Year:</label>
+            <input type="number" id="start-year" name="start-year" placeholder="Year">
+        </div>
+        <div class="input-group">
+            <label for="end-year">End Year:</label>
+            <input type="number" id="end-year" name="end-year" placeholder="Year">
+        </div>
+        <div class="input-group">
+            <label for="activity">Select Activity:</label>
+            <select id="activity" name="activity">
+                <option value="">Activity</option>
+                <!-- OPTIONS -->
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="supply-stage">Select Supply Stage:</label>
+            <select id="supply-stage" name="supply-stage">
+                <option value="">Supply Stage</option>
+                <!-- OPTIONS -->
+            </select>
+        </div>
+        <div class="input-group sort-group">
+            <label>Sort By:</label>
+            <div>
+                <input type="radio" id="ascending" name="sort" value="ascending">
+                <label for="ascending">Ascending</label>
+                <input type="radio" id="descending" name="sort" value="descending">
+                <label for="descending">Descending</label>
+            </div>
+        </div>
+        <div class="button-group">
+            <button id="generate">Generate</button>
+        </div>
+    </div>
+
+    <div class="data-table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Country Name</th>
+                <th>Change in Loss</th>
+                <th>Commodity</th>
+                <th>Activity</th>
+                <th>Supply Stage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TABLE DATA-->
+             <tr>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+             </tr>
+             <tr>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+             </tr>
+             <tr>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+                <td>Test</td>
+             </tr>
+        </tbody>
+    </table>
+</div>
+
+  </body>
+</html>
