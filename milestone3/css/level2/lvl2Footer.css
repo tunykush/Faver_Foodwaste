@@ -91,7 +91,7 @@
     font-weight: 300;
 }
 
-/* Responsive design for footer columns */
+
 @media(max-width: 767px) {
     .footer-content {
         flex-direction: column;
