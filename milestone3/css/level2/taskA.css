@@ -94,7 +94,7 @@ button#generate:hover {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); 
     border-radius: 0.625rem;
     overflow: hidden; 
-    
+
 }
 
 
@@ -103,7 +103,7 @@ button#generate:hover {
     padding: 0.75rem; /* 12px */
     border: 0.0625rem solid #aaa; /* 1px */
     text-align: left;
-}
+}   
 
 .data-table th {
     background-color: #bbb;
