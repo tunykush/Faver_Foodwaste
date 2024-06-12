@@ -77,40 +77,43 @@ button#generate:hover {
     display: flex;
     justify-content: center;
     width: 100%;
-    border-radius: 0.625rem;
-    transition: 1s;
-}
-
-.data-table-container:hover {
-    transform: scale(1.1);
+    padding: 20px 0;
 }
 
 .data-table {
     width: 100%;
-    max-width: 56.25rem; 
-    margin: 2rem 0; 
+    max-width: 1200px;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); 
-    border-radius: 0.625rem;
-    overflow: hidden; 
-
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .data-table th,
 .data-table td {
-    padding: 0.75rem;
-    border: 0.0625rem solid #aaa; 
+    padding: 12px 15px;
+    border: 1px solid #ddd;
     text-align: left;
-}   
+    font-size: 14px;
+}
 
 .data-table th {
-    background-color: #bbb;
-    font-weight: bold;
-    color: #333;
+    background-color: #f8f8f8;
+    font-weight: 600;
 }
 
 .data-table tr:nth-child(even) {
-    background-color: #ddd;
+    background-color: #f9f9f9;
+}
+
+.data-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.data-table a:hover {
+    text-decoration: underline;
+}
+
+.data-table th, .data-table td {
+    white-space: nowrap;
 }
