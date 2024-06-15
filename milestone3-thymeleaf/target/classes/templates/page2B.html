@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Page2B</title>
+    <link rel="stylesheet" type="text/css" href="common.css" />
+    <link rel="stylesheet" type="text/css" href="table.css" />
+  </head>
+  <body>
+    <div>
+      <header th:replace="templates/components/navbar.html :: navbar"></header>
+    </div>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="body-table">
+      <main class="table" id="customers_table">
+        <section class="table__header">
+          <h1>Food Waste Tracker</h1>
+          <div class="input-group">
+            <input type="search" placeholder="Search Data..." />
+            <img th:src="@{faver logo.svg}" alt="" />
+          </div>
+        </section>
+        <form method="get" action="/page2B.html">
+          <label for="fromYear">From Year:</label>
+          <select id="fromYear" name="fromYear">
+              <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}" th:selected="${fromYear == year.year}">1900</option>
+              <!-- Add more options as needed -->
+          </select>
+  
+          <label for="toYear">To Year:</label>
+          <select id="toYear" name="toYear">
+              <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}" th:selected="${toYear == year.year}">1900</option>
+              <!-- Add more options as needed -->
+          </select>
+
+          <label for="commodity">Commodity:</label>
+          <select id="foodGroup" name="foodGroup" style="width: 200px;">
+              <option style="width: 200px;" th:each="commodity : ${commodities}" th:value="${commodity.descriptor}" th:text="${commodity.descriptor}" th:selected="${commodity.descriptor == foodGroup}">Select a commodity</option>
+          </select>
+
+          <button type="submit">Filter</button>
+      </form>
+        <section class="table__body">
+          <table>
+            <thead>
+              <tr>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'commodity' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='commodity', foodGroup=${foodGroup})}">
+                          Food group <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'activity' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='activity', foodGroup=${foodGroup})}">
+                          Activity <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'year' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='year', foodGroup=${foodGroup})}">
+                          Year <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'food_supply_stage' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='food_supply_stage', foodGroup=${foodGroup})}">
+                          Supply <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'loss_percentage' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='loss_percentage', foodGroup=${foodGroup})}">
+                          Loss Change <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+                  <th>
+                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'cause_off_loss ' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='cause_off_loss ', foodGroup=${foodGroup})}">
+                          Cause <span class="icon-arrow"></span>
+                      </a>
+                  </th>
+              </tr>
+          </thead>
+            <tbody>
+              <tr th:each="foodLossE : ${foodLoss}">
+                <td>
+                  <span th:text="${foodLossE.commodity}"> Food group </span>
+                </td>
+                <td><span th:text="${foodLossE.activity}"> Activity </span></td>
+                <td><span th:text="${foodLossE.year}"> Year </span></td>
+                <td>
+                  <span th:text="${foodLossE.foodSupplyStage}"> Supply </span>
+                </td>
+                <td>
+                  <span th:text="${foodLossE.lossPercentage}">
+                    Loss Change
+                  </span>
+                </td>
+                <td>
+                  <span th:text="${foodLossE.causeOffLoss}"> Cause </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </body>
+  <footer th:replace="templates/components/footer.html :: footer"></footer>
+  <script th:src="@{progressbar.js}"></script>
+  <script th:src="@{barchart.js}"></script>
+</html>
