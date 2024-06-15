@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-footer {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Center content vertically */
+}
+
+.row-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center columns horizontally */
+    width: 100%; /* Take full width */
+}
+
+.ul-list-style {
+    list-style: none;
+}
+
+.footer {
+    background-color: #1c1c1c;
+    padding: 30px 0;
+    position: relative; /* Position logo absolutely */
+}
+
+.footer-col {
+    width: 27%;
+    padding: 0 100px;
+}
+    
+
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #ececec;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.5s ease;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.headerTextFooter {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 4rem;
+    margin-right: 1rem; 
+    display: flex;
+    align-items: center;
+    position: absolute; /* Position the logo */
+    left: 20%; /* center */
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}
+
+
+.headerTextFooter img {
+    margin-right: 0.7rem; /* Reduced space between logo and text */
+    height: auto; /* Adjust height */
+    width: auto; /* Adjust width */
+    max-height: 2rem;
+    max-width: 2rem; 
+}
+
+.headerTextFooter h2 {
+    color: #ffffff;
+}
+
+.headerTextFooter h2:active {
+    color: #aaaaaa; /* when clicked */
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+.footer-bottom {
+	padding: 10px 0;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 300;
+	font-size: 16px;
+	margin-top: 20px;
+	align-items: center;
+    position: absolute; /* Position the logo */
+    right: 10%; 
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+}

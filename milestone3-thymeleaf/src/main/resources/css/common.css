@@ -1,0 +1,103 @@
+/* External CSS style file */
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url(footer.css);
+@import url(homesec1.css);
+@import url(navbar.css);
+@import url(style.css);
+@import url(barchart.css);
+@import url(loadbar.css);
+/*var css*/
+:root {
+  --header-height: 3.5rem;
+
+/*color*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  /*font and typo*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*font weight*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*z index*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*responsive typo*/
+@media screen and (min-width: 1024px) {
+   :root {
+     --normal-font-size: 1rem;
+   }
+ }
+
+ 
+
+ 
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial;
+   padding: 10px;
+   background: #f1f1f1;
+}
+
+/* Header (div) formatting */
+.header {
+   padding: 10px;
+   text-align: center;
+   background-color: #cccccc;
+   color: #000000;
+}
+
+.header h1 {
+   font-size: 50px;
+}
+
+
+/* Make the logo have a rounded edge */
+img.top-image {
+   vertical-align: middle;
+}
+
+/* CSS Layout from W3Schools: https://www.w3schools.com/css/css_templates.asp */
+/* Style the top navigation bar */
+.topnav {
+   overflow: hidden;
+   background-color: #333;
+ }
+ 
+ /* Style the topnav links */
+ .topnav a {
+   float: left;
+   display: block;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+ 
+ /* Change color on hover */
+ .topnav a:hover {
+   background-color: #ddd;
+   color: black;
+ }
+ 
+ /* Style the content */
+ .content {
+   background-color: #ddd;
+   padding: 10px;
+ }
+ 
+ 

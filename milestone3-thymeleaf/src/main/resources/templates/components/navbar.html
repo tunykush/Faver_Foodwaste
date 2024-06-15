@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header th:fragment="navbar" class="primary-header">
+      <div class="container">
+        <div class="logo-nav-container">
+          <a href="/" class="nav__logo">
+            <img th:src="@{faverlogoblack.svg}" alt="Faver Logo" />
+          </a>
+          <div class="logo-nav-container">
+            <div class="nav__menu container" id="nav-menu">
+              <nav class="nav menu">
+                <ol class="nav__list">
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="./mission.html" class="nav__link"
+                      >Mission Statement</a
+                    >
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Country</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="./page2A.html">Task-2a</a></li>
+                      <li class="menu-item"><a href="./page3A.html">Task-3a</a></li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Explore by Food</a>
+                    <ol class="sub-menu">
+                      <li class="menu-item"><a href="./page2B.html">Task-2b</a></li>
+                      <li class="menu-item"><a href="./page3B.html">Task-3b</a></li>
+                    </ol>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">Career</a>
+                  </li>
+                  <!-- Nav tab -->
+                  <li class="nav__item menu-item">
+                    <a href="#" class="nav__link">About Us</a>
+                  </li>
+                  <!-- Nav tab -->
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
