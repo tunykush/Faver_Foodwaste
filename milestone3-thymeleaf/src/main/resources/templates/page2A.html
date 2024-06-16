@@ -1,20 +1,178 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Page2A</title>
-    <link rel="stylesheet" type="text/css" href="common.css" />
-  </head>
-  <body>
-    <div>
+<head>
+    <meta charset="UTF-8" />
+    <title>Food Loss by Country</title>
+    <link rel="icon" type="image/svg+xml" th:href="@{/faver logo.svg}" />
+    <link rel="stylesheet" th:href="common.css" />
+    <link rel="stylesheet" th:href="style.css" />
+    <link rel="stylesheet" th:href="task2a.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        function generateData(event) {
+            event.preventDefault();
+            const form = document.getElementById('data-form');
+            const formData = new FormData(form);
+
+            fetch('/generate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('.data-table tbody').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function toggleColumn(checkbox, columnClass) {
+            const header = document.querySelector(`th.${columnClass}`);
+            const columnCells = document.querySelectorAll(`td.${columnClass}`);
+            if (checkbox.checked) {
+                header.style.display = '';
+                columnCells.forEach(cell => {
+                    cell.style.display = '';
+                });
+            } else {
+                header.style.display = 'none';
+                columnCells.forEach(cell => {
+                    cell.style.display = 'none';
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+  <div>
       <header th:replace="templates/components/navbar.html :: navbar"></header>
-    </div>
-    <div id="progress-container">
-      <div id="progress-bar"></div>
-    </div>
-    <main class="container" id="content">
-    </main>
-  </body>
+  </div>
+
+  <div class="container">
+      <div class="content-section">
+          <div class="text-center">
+              <h1 class="fs-primary-heading fw-bold" style="padding-top: 3rem">
+                  Food Loss by Country
+              </h1>
+          </div>
+      </div>
+  </div>
+
+  <form id="data-form" action="/generate" method="post" onsubmit="generateData(event)">
+      <div class="form-container">
+          <div class="input-row">
+              <div class="input-group">
+                  <label for="country">Select Country:</label>
+                  <select id="country" name="country">
+                      <option value="">Country</option>
+                      <th:block th:each="country : ${countries}">
+                          <option th:value="${country}" th:text="${country}"></option>
+                      </th:block>
+                  </select>
+              </div>
+              <div class="input-group">
+                  <label for="start-year">Start Year:</label>
+                  <select id="start-year" name="start-year">
+                      <option value="">Start Year</option>
+                      <th:block th:each="year : ${years}">
+                          <option th:value="${year}" th:text="${year}"></option>
+                      </th:block>
+                  </select>
+              </div>
+              <div class="input-group">
+                  <label for="end-year">End Year:</label>
+                  <select id="end-year" name="end-year">
+                      <option value="">End Year</option>
+                      <th:block th:each="year : ${years}">
+                          <option th:value="${year}" th:text="${year}"></option>
+                      </th:block>
+                  </select>
+              </div>
+          </div>
+
+          <div class="sort-row">
+              <div class="input-group">
+                  <label>Sort By:</label>
+                  <div>
+                      <input type="radio" id="ascending" name="sort" value="ascending" />
+                      <label for="ascending">Ascending</label>
+                      <input type="radio" id="descending" name="sort" value="descending" />
+                      <label for="descending">Descending</label>
+                  </div>
+              </div>
+          </div>
+
+          <div class="checkbox-row">
+              <div class="checkbox-group">
+                  <label for="commodity-checkbox">
+                      <input type="checkbox" id="commodity-checkbox" onchange="toggleColumn(this, 'commodity-column')" checked />
+                      Commodity
+                  </label>
+                  <label for="activity-checkbox">
+                      <input type="checkbox" id="activity-checkbox" onchange="toggleColumn(this, 'activity-column')" checked />
+                      Activity
+                  </label>
+                  <label for="supply-stage-checkbox">
+                      <input type="checkbox" id="supply-stage-checkbox" onchange="toggleColumn(this, 'supply-stage-column')" checked />
+                      Supply Stage
+                  </label>
+                  <label for="cause-checkbox">
+                      <input type="checkbox" id="cause-checkbox" onchange="toggleColumn(this, 'cause-column')" checked />
+                      Cause of Loss
+                  </label>
+              </div>
+          </div>
+
+          <div class="button-row">
+              <div class="button-group">
+                  <button id="generate">Generate</button>
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <div class="data-table-container">
+      <table class="data-table">
+          <thead>
+              <tr>
+                  <th>Country Name</th>
+                  <th>Change in Loss</th>
+                  <th class="commodity-column">Commodity</th>
+                  <th class="activity-column">Activity</th>
+                  <th class="supply-stage-column">Supply Stage</th>
+                  <th class="cause-column">Cause of Loss</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="event : ${foodLossEvents}">
+                  <td>
+                      <span th:text="${event.country}">Country</span>
+                  </td>
+                  <td>
+                      <span th:text="${event.changeInLoss}">Change in Loss</span>
+                  </td>
+                  <td class="commodity-column">
+                      <span th:text="${event.commodity}">Commodity</span>
+                  </td>
+                  <td class="activity-column">
+                      <span th:text="${event.activity}">Activity</span>
+                  </td>
+                  <td class="supply-stage-column">
+                      <span th:text="${event.foodSupplyStage}">Supply Stage</span>
+                  </td>
+                  <td class="cause-column">
+                      <span th:text="${event.causeOfLoss}">Cause of Loss</span>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
   <footer th:replace="templates/components/footer.html :: footer"></footer>
-  <script th:src="@{progressbar.js}"></script>
-  <script th:src="@{barchart.js}"></script>
+</body>
 </html>

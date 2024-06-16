@@ -58,6 +58,7 @@ public class App {
         app.get(PageST3B.URL, new PageST3B());
 
         // Add / uncomment POST commands for any pages that need web form POSTS
+        app.post("/generate", new PageST2A()::handleFormSubmission);
         // app.post(PageIndex.URL, new PageIndex());
         // app.post(PageMission.URL, new PageMission());
         // app.post(PageST2A.URL, new PageST2A());
