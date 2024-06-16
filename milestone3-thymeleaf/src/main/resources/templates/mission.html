@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="common.css" />
+    <link rel="stylesheet" type="text/css" href="statement.css" />
+    <link rel="stylesheet" type="text/css" href="statementStyle.css" />
+  </head>
+  <body>
+    <div>
+      <header th:replace="templates/components/navbar.html :: navbar"></header>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="content-section">
+          <div class="text-side">
+            <h1 class="fs-primary-heading fw-bold">Mission Statement</h1>
+            <p style="font-size: 1.3rem; text-align: justify">
+              Our mission at Faver is to raise awareness and educate all users
+              of the food supply chain of the devastating effects of food waste.
+              We firmly believe that if people come together and actively work
+              towards preventing food loss we can significantly increase
+              sustainability.
+            </p>
+          </div>
+          <div class="image-side">
+            <img
+              th:src="@{dart-mission-goal-success-svgrepo-com.svg}"
+              alt="mission statement image"
+              id="mission-img"
+            />
+          </div>
+        </div>
+
+        <hr style="width: 100%; text-align: left; margin-left: 0" />
+        <div class="fs-primary-heading fw-bold">Our Users</div>
+
+        <div>
+          <p style="font-size: 1.3rem">
+            Here at Faver we like to believe our website and its services
+            targets everyone involved in the food supply chain from consumers to
+            processing facilities. Meet some of our users...
+          </p>
+        </div>
+
+        <div class="container" th:each="user : ${users}">
+          <div
+            class="content-section"
+            style="padding-bottom: 2rem; padding-top: 5rem"
+          >
+            <div class="image-side">
+              <img
+                th:src="@{${user.imageFilePath}}"
+                alt="user image"
+                class="user-img"
+              />
+            </div>
+            <div class="text-side user-text">
+              <p style="font-size: 1rem; text-align: justify">
+                <span style="font-weight: bold">Background: </span>
+                <span th:text="${user.background}"></span><br /><br />
+                <span style="font-weight: bold">Needs & Goals: </span>
+                <span th:text="${user.needs}"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer th:replace="templates/components/footer.html :: footer"></footer>
+</html>
