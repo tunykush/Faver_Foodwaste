@@ -7,6 +7,7 @@ import app.entities.Commodity;
 import app.entities.Country;
 import app.entities.Date;
 import app.entities.FoodLossEvent;
+import app.entities.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +27,8 @@ import java.sql.Statement;
 public class JDBCConnection {
 
     // Name of database file (contained in database folder)
-    public static final String DATABASE = "jdbc:sqlite:milestone3-thymeleaf/database/foodloss.db";
+    public static final String DATABASE = "jdbc:sqlite:Faver_Foodwaste/milestone3-thymeleaf/database/foodloss.db";
+
 
     /**
      * This creates a JDBC Object so we can keep talking to the database
@@ -272,5 +274,56 @@ public class JDBCConnection {
 
         // Finally we return all of the countries
         return foodLossEvents;
+    }
+
+    public ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        System.out.println("a");
+        Connection connection = null;
+
+try {
+    // Connect to JDBC database
+    connection = DriverManager.getConnection(DATABASE);
+    System.out.println("b");
+
+    // Prepare a new SQL Query & Set a timeout
+    Statement statement = connection.createStatement();
+    statement.setQueryTimeout(30); // set timeout to 30 sec.
+    System.out.println("a");
+
+    // Execute the query
+    ResultSet results = statement.executeQuery("SELECT * FROM Persona");
+
+    // Process all of the results
+    while (results.next()) {
+        String background = results.getString("background");
+        String needs = results.getString("needs");
+        String imageFilePath = results.getString("imageFilePath");
+
+        User user = new User(background, needs, imageFilePath);
+
+        users.add(user);
+    }
+
+    // Close the statement because we are done with it
+    statement.close();
+} catch (SQLException e) {
+    // If there is an error, let's just print the error
+    System.out.println("err");
+    System.err.println(e.getMessage());
+} finally {
+    // Safety code to cleanup
+    try {
+        if (connection != null) {
+            connection.close();
+        }
+    } catch (SQLException e) {
+        // Connection close failed.
+        System.err.println(e.getMessage());
+    }
+}
+
+
+        return users;
     }
 }
