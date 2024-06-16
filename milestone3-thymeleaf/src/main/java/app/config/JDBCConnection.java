@@ -278,18 +278,18 @@ public class JDBCConnection {
 
     public ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
-        System.out.println("a");
+        
         Connection connection = null;
 
 try {
     // Connect to JDBC database
     connection = DriverManager.getConnection(DATABASE);
-    System.out.println("b");
+    
 
     // Prepare a new SQL Query & Set a timeout
     Statement statement = connection.createStatement();
     statement.setQueryTimeout(30); // set timeout to 30 sec.
-    System.out.println("a");
+    
 
     // Execute the query
     ResultSet results = statement.executeQuery("SELECT * FROM Persona");
@@ -309,7 +309,7 @@ try {
     statement.close();
 } catch (SQLException e) {
     // If there is an error, let's just print the error
-    System.out.println("err");
+    
     System.err.println(e.getMessage());
 } finally {
     // Safety code to cleanup
