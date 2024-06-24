@@ -2,21 +2,14 @@ package app.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import app.entities.Commodity;
 import app.entities.Date;
-import app.entities.FoodLossEvent;
 import app.config.JDBCConnection;
 import app.dto.Task2B;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Example Index HTML class using Javalin
@@ -33,29 +26,43 @@ public class PageST2B implements Handler {
 
     // URL of this page relative to http://localhost:7001/
     public static final String URL = "/page2B.html";
+    List<String> foodGroupList = null;
 
     @Override
     public void handle(Context context) throws Exception {
-        // Makes Javalin render the webpage
         JDBCConnection connection = new JDBCConnection();
-        String fromYear = context.queryParam("fromYear", "1900");
-        String toYear = context.queryParam("toYear", "3000");
-        String sortDir = context.queryParam("sortDir", "asc");
-        String orderBy = context.queryParam("orderBy", "year");
-        String foodGroup = context.queryParam("foodGroup", "null");
-        ArrayList<Task2B> event = connection.getAllFoodLossEvent(fromYear,toYear,sortDir,foodGroup,orderBy);
+        String fromYear = context.formParam("fromYear", "1900");
+        String toYear = context.formParam("toYear", "3000");
+        String orderBy = context.formParam("orderBy", "asc");
+        String activity = context.formParam("activity");
+        String foodsupplystage = context.formParam("foodsupplystage");
+        String causeofloss = context.formParam("causeofloss");
+        String sortOrder = context.formParam("sortOrder", "asc");
+        System.out.println("sortOrder: " + sortOrder);
+        boolean leastOne = false;
+        if (!context.formParams("foodGroup").isEmpty()) {
+            foodGroupList = context.formParams("foodGroup");
+            leastOne = foodGroupList.size() > 1;
+        }
+
+        ArrayList<Task2B> event = connection.getAllFoodLossEvent(fromYear, toYear, foodGroupList, sortOrder,
+                activity != null, foodsupplystage != null, causeofloss != null, sortOrder);
         ArrayList<Date> years = connection.getAllYears();
         ArrayList<Commodity> commodities = connection.getAllCommodity();
-        HashMap<String, Object> model = new HashMap<String,Object>();
+        HashMap<String, Object> model = new HashMap<String, Object>();
+
+        model.put("activity", activity);
+        model.put("foodsupplystage", foodsupplystage);
+        model.put("causeofloss", causeofloss);
         model.put("foodLoss", event);
-        model.put("years",years);
-        model.put("sortDir", sortDir);
+        model.put("years", years);
         model.put("orderBy", orderBy);
         model.put("fromYear", fromYear);
         model.put("toYear", toYear);
-        model.put("foodGroup", foodGroup);
+        model.put("foodGroupList", foodGroupList);
         model.put("commodities", commodities);
-        // DO NOT MODIFY THIS
+        model.put("leastOne", leastOne);
+
         context.render("/templates/page2B.html", model);
     }
 

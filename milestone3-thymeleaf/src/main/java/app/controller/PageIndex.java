@@ -1,16 +1,13 @@
 package app.controller;
 
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ArrayList;
 
 import app.config.JDBCConnection;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Example Index HTML class using Javalin
@@ -30,65 +27,19 @@ public class PageIndex implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
+        JDBCConnection connection = new JDBCConnection();
+        Map<String, Object> model = new HashMap<String, Object>();
+        ArrayList<String> data = connection.getLandingData();
+        model.put("data", data);
 
         // DO NOT MODIFY THIS
         // Makes Javalin render the webpage
-        context.render("/templates/index.html");
+        context.render("/templates/index.html", model);
     }
 
 
     /**
      * Get the names of the countries in the database.
      */
-    public ArrayList<String> getAllCountries() {
-        // Create the ArrayList of String objects to return
-        ArrayList<String> countries = new ArrayList<String>();
 
-        // Setup the variable for the JDBC connection
-        Connection connection = null;
-
-        try {
-            // Connect to JDBC data base
-            connection = DriverManager.getConnection(JDBCConnection.DATABASE);
-
-            // Prepare a new SQL Query & Set a timeout
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);
-
-            // The Query
-            String query = "SELECT * FROM country";
-            
-            // Get Result
-            ResultSet results = statement.executeQuery(query);
-
-            // Process all of the results
-            while (results.next()) {
-                String countryName  = results.getString("countryName");
-
-                // Add the country object to the array
-                countries.add(countryName);
-            }
-
-            // Close the statement because we are done with it
-            statement.close();
-        } catch (SQLException e) {
-            // If there is an error, lets just print the error
-            System.err.println(e.getMessage());
-            //e.printStackTrace();
-        } finally {
-            // Safety code to cleanup
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-                //e.printStackTrace();
-            }
-        }
-
-        // Finally we return all of the countries
-        return countries;
-    }
 }

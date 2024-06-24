@@ -163,7 +163,6 @@ html, body {
   margin: 0;
 }
 
- /* font-family: "Fira Mono", monospace; */
 
 * {
   box-sizing: border-box;
@@ -196,7 +195,6 @@ a {
 }
 
 
-  /* Base styles and reset */
 
   * {
     box-sizing: border-box;
@@ -232,7 +230,7 @@ a {
 
   .nav {
     display: flex;
-    justify-content: center; /* Center the nav */
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     flex: 1 1 100%; 
@@ -240,9 +238,9 @@ a {
 
   .nav__menu {
     display: flex;
-    justify-content: space-around;  /*Equal spacing between items*/
+    justify-content: space-around;
     align-items: center;
-    flex: 1; /* Take up remaining space */
+    flex: 1;
     display: flex;
     margin-top: 15px;
   }
@@ -250,8 +248,8 @@ a {
   .nav__list {
     display: flex;
     list-style: none;
-    width: 100%; /* Ensure full width for equal spacing */
-    justify-content: space-evenly; /* Equal spacing between nav items */
+    width: 100%;
+    justify-content: space-evenly;
     margin-left: auto;
   }
 
@@ -307,7 +305,7 @@ a {
 
   @media (max-width: 768px) {
     .nav {
-      justify-content: space-between; /* Adjust for mobile view */
+      justify-content: space-between;
     }
 
     .nav__menu {

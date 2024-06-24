@@ -1,4 +1,4 @@
-  /* Content section styles */
+  
   .content-section {
     display: flex;
     align-items: center;
@@ -19,9 +19,9 @@
   }
 
   .image-side img {
-    width: 100%; /* Adjusted to use full width of the container */
-    max-width: 600px; /* Max width for larger displays */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    max-width: 600px;
+    height: auto; 
   }
 
   @media (max-width: 768px) {

@@ -8,16 +8,16 @@
 .bar-body {
     display: flex;
     justify-content: center;
-    align-items: center; /* Changed to center */
+    align-items: center; 
     min-height: 40vh;
-    position: relative; /* Added to position elements relatively */
+    position: relative;
 }
 
 .card {
     position: relative;
     width: 200px;
     height: 200px;
-    z-index: 2; /* Ensure card is above the image */
+    z-index: 2;
 }
 
 .card .rating {
@@ -43,7 +43,7 @@
     }
 }
 
-.card .rating .block:nth-child(-n+62) /* get +1 value up of given one */ {
+.card .rating .block:nth-child(-n+10)  {
     background: #0f0;
     box-shadow: 0 0 15px #0f0, 0 0 0px #0f0;
 }
@@ -80,15 +80,15 @@
     top: 53%;
     left: 30%;
     transform: translate(-31%, -50%);
-    z-index: 1; /* Ensure image is below the card */
+    z-index: 1; 
 }
 
 .description {
     display: flex;
-    align-items: center; /* Align items vertically centered */
-    justify-content: space-between; /* Space between paragraph and chart */
-    width: 100%; /* Adjust as needed */
-    max-width: 800px; /* Adjust as needed */
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 800px;
 }
 .per-lost{
     margin-right: 40px;

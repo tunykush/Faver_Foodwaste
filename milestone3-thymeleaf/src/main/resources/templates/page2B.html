@@ -1,108 +1,186 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Page2B</title>
-    <link rel="stylesheet" type="text/css" href="common.css" />
-    <link rel="stylesheet" type="text/css" href="table.css" />
-  </head>
-  <body>
-    <div>
-      <header th:replace="templates/components/navbar.html :: navbar"></header>
-    </div>
-    <div id="progress-container">
-      <div id="progress-bar"></div>
-    </div>
-    <div class="body-table">
-      <main class="table" id="customers_table">
-        <section class="table__header">
-          <h1>Food Waste Tracker</h1>
-          <div class="input-group">
-            <input type="search" placeholder="Search Data..." />
-            <img th:src="@{faver logo.svg}" alt="" />
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page2B</title>
+  <link rel="stylesheet" type="text/css" href="task2b.css">
+  <link rel="stylesheet" type="text/css" href="table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+  <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div>
+    <header th:replace="templates/components/navbar.html :: navbar"></header>
+  </div>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  <div class="body-table">
+    <main class="table" id="customers_table">
+      <section class="table__header">
+        <h1>Food Waste Tracker</h1>
+      </section>
+      <div class="main-content">
+        <form class="filter-group" method="post" action="page2B.html" id="form">
+          <div class="filter-section">
+            <div class="year-group-input">
+              <label class="filter-choice" for="fromYear">From</label>
+              <select class="option-input" id="fromYear" name="fromYear">
+                <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}"
+                  th:selected="${fromYear == year.year}">
+                  1900
+                </option>
+              </select>
+            </div>
+            <div class="year-group-input">
+              <label class="filter-choice" for="toYear">To</label>
+              <select class="option-input" id="toYear" name="toYear">
+                <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}"
+                  th:selected="${toYear == year.year}">
+                  1900
+                </option>
+              </select>
+            </div>
+            <div class="year-group-input group">
+              <label class="filter-choice group-label" for="foodGroup">Group
+              </label>
+              <select class="option-input" id="foodGroup" name="foodGroup" multiple>
+                <option class="group-option" th:each="commodity : ${commodities}" th:value="${commodity.descriptor}"
+                  th:text="${commodity.descriptor}" th:selected="${foodGroupList != null
+                        ? (leastOne
+                        ? foodGroupList.contains(commodity.descriptor)
+                        : foodGroupList[0].equals(commodity.descriptor))
+                        : false}">
+                  Select a commodity
+                </option>
+              </select>
+            </div>
+
+            <div class="option">
+              <input type="checkbox" name="activity">
+              <label class="filter-choice">
+                Activity
+              </label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="foodsupplystage">
+              <label class="filter-choice">
+                Food Supply Stage
+              </label>
+            </div>
+            <div class="option">
+              <input type="checkbox" name="causeofloss">
+              <label class="filter-choice">
+                Cause of Loss
+              </label>
+            </div>
           </div>
-        </section>
-        <form method="get" action="/page2B.html">
-          <label for="fromYear">From Year:</label>
-          <select id="fromYear" name="fromYear">
-              <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}" th:selected="${fromYear == year.year}">1900</option>
-              <!-- Add more options as needed -->
-          </select>
-  
-          <label for="toYear">To Year:</label>
-          <select id="toYear" name="toYear">
-              <option th:each="year : ${years}" th:value="${year.year}" th:text="${year.year}" th:selected="${toYear == year.year}">1900</option>
-              <!-- Add more options as needed -->
-          </select>
+          <div class="filter-box">
+            <label for="sortOrder">Sort:</label>
+            <select id="sortOrder" name="sortOrder">
+              <option value="asc" th:selected="${sortOrder == 'asc'}">Sort (ascending)</option>
+              <option value="desc" th:selected="${sortOrder == 'desc'}">Sort (descending)</option>
+            </select>
+          </div>
+          <div class="filter-box">
+            <div class="ctrl-btn" onclick="submitForm()" style="background-color: rgb(41, 41, 41); margin-left: auto">
+              Filter Data
+              <img class="submit-icon" th:src="@{Filter.svg}" alt="Filter Icon" />
+            </div>
+          </div>
 
-          <label for="commodity">Commodity:</label>
-          <select id="foodGroup" name="foodGroup" style="width: 200px;">
-              <option style="width: 200px;" th:each="commodity : ${commodities}" th:value="${commodity.descriptor}" th:text="${commodity.descriptor}" th:selected="${commodity.descriptor == foodGroup}">Select a commodity</option>
-          </select>
-
-          <button type="submit">Filter</button>
-      </form>
-        <section class="table__body">
+        </form>
+        <section class="table__body" style="overflow-x: auto; max-height: 400px;">
           <table>
             <thead>
               <tr>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'commodity' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='commodity', foodGroup=${foodGroup})}">
-                          Food group <span class="icon-arrow"></span>
-                      </a>
-                  </th>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'activity' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='activity', foodGroup=${foodGroup})}">
-                          Activity <span class="icon-arrow"></span>
-                      </a>
-                  </th>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'year' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='year', foodGroup=${foodGroup})}">
-                          Year <span class="icon-arrow"></span>
-                      </a>
-                  </th>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'food_supply_stage' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='food_supply_stage', foodGroup=${foodGroup})}">
-                          Supply <span class="icon-arrow"></span>
-                      </a>
-                  </th>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'loss_percentage' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='loss_percentage', foodGroup=${foodGroup})}">
-                          Loss Change <span class="icon-arrow"></span>
-                      </a>
-                  </th>
-                  <th>
-                      <a th:href="@{/page2B.html(fromYear=${fromYear}, toYear=${toYear}, sortDir=${orderBy == 'cause_off_loss ' and sortDir == 'asc' ? 'desc' : 'asc'}, orderBy='cause_off_loss ', foodGroup=${foodGroup})}">
-                          Cause <span class="icon-arrow"></span>
-                      </a>
-                  </th>
+                <th>
+                  Food group <span class="icon-arrow">
+                </th>
+                <th>
+                  Start <span class="icon-arrow">
+                </th>
+
+                <th>
+                  End <span class="icon-arrow">
+                </th>
+
+                <th>
+                  Difference <span class="icon-arrow">
+                </th>
+
+                <th th:if="${activity}">
+                  Activity <span class="icon-arrow">
+                </th>
+                <th th:if="${foodsupplystage}">
+                  Supply <span class="icon-arrow">
+                </th>
+                <th th:if="${causeofloss}">
+                  Cause <span class="icon-arrow">
+                </th>
               </tr>
-          </thead>
+            </thead>
             <tbody>
               <tr th:each="foodLossE : ${foodLoss}">
                 <td>
                   <span th:text="${foodLossE.commodity}"> Food group </span>
                 </td>
-                <td><span th:text="${foodLossE.activity}"> Activity </span></td>
-                <td><span th:text="${foodLossE.year}"> Year </span></td>
-                <td>
-                  <span th:text="${foodLossE.foodSupplyStage}"> Supply </span>
+                <td><span th:text="${#numbers.formatDecimal(foodLossE.start, 2, 4)}?: 'not in database'"> Start </span>
                 </td>
+                <td><span th:text="${#numbers.formatDecimal(foodLossE.end, 2, 4)}?: 'not in database'"> End </span></td>
+                <td><span th:text="${#numbers.formatDecimal(foodLossE.lossPercentage, 2, 4)}?: 'not in database'">
+                    Difference </span></td>
+                <td><span th:if="${activity}" th:text="${foodLossE.activity}?: 'not in database'"> Activity </span></td>
                 <td>
-                  <span th:text="${foodLossE.lossPercentage}">
-                    Loss Change
+                  <span th:if="${foodsupplystage}" th:text="${foodLossE.foodSupplyStage}?: 'not in database'"> Supply
                   </span>
                 </td>
                 <td>
-                  <span th:text="${foodLossE.causeOffLoss}"> Cause </span>
+                  <span th:if="${causeofloss}" th:text="${foodLossE.causeOffLoss}?: 'not in database'"> Cause </span>
                 </td>
               </tr>
             </tbody>
           </table>
         </section>
-      </main>
-    </div>
-  </body>
-  <footer th:replace="templates/components/footer.html :: footer"></footer>
-  <script th:src="@{progressbar.js}"></script>
-  <script th:src="@{barchart.js}"></script>
+      </div>
+    </main>
+  </div>
+</body>
+<script>
+  let asc = true;
+
+  function submitForm() {
+    const startYear = document.getElementById("fromYear").value;
+    const endYear = document.getElementById("toYear").value;
+    const foodGroup = document.getElementById("foodGroup").selectedOptions;
+
+    if (foodGroup.length == 0) {
+      alert("Please select at least one food group!");
+      return;
+    }
+
+    if (startYear >= endYear) {
+      alert("End year must be after Start year!");
+      return;
+    }
+
+    document.getElementById("form").submit();
+  }
+
+  $(document).ready(function () {
+    $("#foodGroup").chosen();
+  });
+  ////////////////////////////////////////////////
+
+
+</script>
+<footer th:replace="templates/components/footer.html :: footer"></footer>
+<script th:src="@{progressbar.js}"></script>
+<script th:src="@{barchart.js}"></script>
+
 </html>

@@ -109,7 +109,7 @@
         <div class="container">
           <div class="even-columns">
             <div>
-              <p>
+              <p th:text="'Our database contains data and information from ' + ${data[0]} + ' to ' + ${data[1]}">
                 Our database contains data and information from 1966 to 2022!
               </p>
             </div>
@@ -127,7 +127,7 @@
         <div class="card">
           <div class="rating">
             <h2>
-              <span class="counter" data-target="61.1">61.1</span><sup>%</sup><br><HTML>
+              <span class="counter" data-target="9.9" th:text="${data[2]} + '%'"></span><sup></sup><br><HTML>
             </h2>
             <div class ="block">
             </div>
@@ -136,14 +136,11 @@
       </div>
       
       <div class="seeds-container" >
-          <img th:src="@{mustard seeds.svg}" alt="seeds" style="border:solid gray; border-width:0 2px 0 0;"/>
+          <img th:src="@{maize_corn.jpg}" alt="seeds" style="border:solid gray; border-width:0 2px 0 0;"/>
           <div class="background-text">
             <div class="contents">
-              <p>
-                Mustard Seed
-              </p>
-              <p>
-                2018
+              <p th:text="${data[3]} + ' in ' + ${data[4]}">
+               
               </p>
             </div>
           </div>

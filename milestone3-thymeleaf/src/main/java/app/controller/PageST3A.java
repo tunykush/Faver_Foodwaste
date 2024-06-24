@@ -1,26 +1,16 @@
 package app.controller;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
 
+
+import app.config.JDBCConnection;
+import app.entities.SimilarityScore;
+import app.entities.SimilarityData;
+import app.entities.Date;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-/**
- * Example Index HTML class using Javalin
- * <p>
- * Generate a static HTML page using Javalin
- * by writing the raw HTML into a Java String object
- *
- * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
- * @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
- */
 
 public class PageST3A implements Handler {
 
@@ -29,9 +19,38 @@ public class PageST3A implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
-        // DO NOT MODIFY THIS
-        // Makes Javalin render the webpage
+        renderPage(context, null);
+    }
+
+    public static void handleFormSubmission(Context context) throws SQLException {
+        String location = context.formParam("location");
+        String year = context.formParam("year");
+        String similarityType = context.formParam("similarity-type");
+        String similarityLevel = context.formParam("similarity-level");
+        int numResults = Integer.parseInt(context.formParam("num-results"));
+
+        List<SimilarityScore> results = getSimilarityScores(location, year, similarityType, similarityLevel, numResults);
+
+        renderPage(context, results);
+    }
+
+    private static void renderPage(Context context, List<SimilarityScore> results) throws SQLException {
+        JDBCConnection connection = new JDBCConnection();
+        List<String> locations = connection.getAllLocations();
+        List<Date> years = connection.getAllYears();
+
+        context.attribute("locations", locations);
+        context.attribute("years", years);
+        context.attribute("results", results);
+
         context.render("/templates/page3A.html");
     }
 
+    public static List<SimilarityScore> getSimilarityScores(String location, String year, String similarityType, String similarityLevel, int numResults) throws SQLException {
+        JDBCConnection connection = new JDBCConnection();
+        List<SimilarityData> dataList = connection.getSimilarityData(year, location, similarityType);
+        List<SimilarityScore> similarityScores = connection.calculateSimilarityScores(dataList, similarityLevel, similarityType);
+
+        return similarityScores.subList(0, Math.min(numResults, similarityScores.size()));
+    }
 }

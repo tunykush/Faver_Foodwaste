@@ -12,14 +12,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Center content vertically */
+    flex-direction: column;
 }
 
 .row-footer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center columns horizontally */
-    width: 100%; /* Take full width */
+    justify-content: center;
+    width: 100%; 
 }
 
 .ul-list-style {
@@ -29,7 +29,7 @@ footer {
 .footer {
     background-color: #1c1c1c;
     padding: 30px 0;
-    position: relative; /* Position logo absolutely */
+    position: relative;
 }
 
 .footer-col {
@@ -72,7 +72,7 @@ footer {
     color: #bbbbbb;
     display: block;
     transition: all 0.5s ease;
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
 }
 
 .footer-col ul li a:hover {
@@ -88,17 +88,17 @@ footer {
     margin-right: 1rem; 
     display: flex;
     align-items: center;
-    position: absolute; /* Position the logo */
-    left: 20%; /* center */
+    position: absolute;
+    left: 20%; 
     bottom: 50%;
     transform: translate(-50%, 50%);
 }
 
 
 .headerTextFooter img {
-    margin-right: 0.7rem; /* Reduced space between logo and text */
-    height: auto; /* Adjust height */
-    width: auto; /* Adjust width */
+    margin-right: 0.7rem;
+    height: auto; 
+    width: auto; 
     max-height: 2rem;
     max-width: 2rem; 
 }
@@ -108,7 +108,7 @@ footer {
 }
 
 .headerTextFooter h2:active {
-    color: #aaaaaa; /* when clicked */
+    color: #aaaaaa; 
 }
 
 /*responsive*/
@@ -133,7 +133,7 @@ footer {
 	font-size: 16px;
 	margin-top: 20px;
 	align-items: center;
-    position: absolute; /* Position the logo */
+    position: absolute;
     right: 10%; 
     bottom: 50%;
     transform: translate(-50%, 50%);

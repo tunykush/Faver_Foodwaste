@@ -1,20 +1,103 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Page3A</title>
-    <link rel="stylesheet" type="text/css" href="common.css" />
-  </head>
-  <body>
-    <div>
-      <header th:replace="templates/components/navbar.html :: navbar"></header>
+<head>
+    <title>Locations with Similar Food Loss</title>
+    <link rel="stylesheet" type="text/css" href="/common.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/task3a.css" />
+</head>
+<body>
+    <header th:replace="templates/components/navbar.html :: navbar"></header>
+    <div class="container">
+        <div class="content-section">
+            <div class="text-center">
+                <h1 class="fs-primary-heading fw-bold">Locations with Similar Food Loss</h1>
+            </div>
+        </div>
     </div>
-    <div id="progress-container">
-      <div id="progress-bar"></div>
+    <div class="form-container">
+        <form action="/page3A.html" method="post" onsubmit="checkTableData(event)">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="location">Select Location:</label>
+                    <select id="location" name="location">
+                        <option value="" disabled selected>Select Location</option>
+                        <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}"></option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="year">Select Year:</label>
+                    <select id="year" name="year">
+                        <option value="" disabled selected>Select Year</option>
+                        <option th:each="yr : ${years}" th:value="${yr.year}" th:text="${yr.year}"></option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="similarity-type">Similarity Type:</label>
+                    <select id="similarity-type" name="similarity-type">
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="common_products">Food Products</option>
+                        <option value="overall_percentage">Percentage</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="similarity-level">Level of Similarity:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="absolute" name="similarity-level" value="absolute" />
+                        <label for="absolute">Absolute</label>
+                        <input type="radio" id="overlap" name="similarity-level" value="overlap" />
+                        <label for="overlap">Overlap</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="num-results">Number of Similar Locations:</label>
+                    <input required type="number" id="num-results" name="num-results" placeholder="Number of Similar Locations" />
+                </div>
+                <div class="button-group">
+                    <button type="submit" id="generate">Generate</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <main class="container" id="content">
-    </main>
-  </body>
-  <footer th:replace="templates/components/footer.html :: footer"></footer>
-  <script th:src="@{progressbar.js}"></script>
-  <script th:src="@{barchart.js}"></script>
+    <div class="data-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Country Name</th>
+                    <th>Similarity Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="result : ${results}">
+                    <td th:text="${result.country}">Country Name</td>
+                    <td th:text="${result.similarityScore}">Similarity Score</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="no-data-message" class="hidden">No data found for the selected input.</div>
+    <footer th:replace="templates/components/footer.html :: footer"></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function checkTableData(event) {
+            
+            
+            let rowCount = $('table.data-table tbody tr').length;
+            if (rowCount === 0) {
+                $('#no-data-message').removeClass('hidden');
+            } else {
+                $('#no-data-message').addClass('hidden');
+            }
+
+            
+             $(event.target).off('submit').submit();
+        }
+
+        $(document).ready(function() {
+           
+            checkTableData();
+        });
+    </script>
+</body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>About Us</title>
+    <link rel="stylesheet" type="text/css" href="common.css" />
+    
+  </head>
+  <body>
+    <div>
+      <header th:replace="templates/components/navbar.html :: navbar"></header>
+    </div>
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div class="abcontainer">
+      <h1>About Us</h1>
+      <div class="abline"></div>
+      <p>
+        Welcome to Faver. Our platform offers an impartial examination of the
+        origins and consequences of food waste, from the point of harvest to the
+        point of consumption.
+      </p>
+
+      <h2>Our Mission</h2>
+      <div class="abline"></div>
+      <p>
+        To inform and empower users to understand and address food loss and
+        waste, contributing to a more sustainable and equitable food system.
+      </p>
+
+      <h2>What We Do</h2>
+      <div class="abline"></div>
+      <ul>
+        <li>Detailed statistics and analysis of food loss and waste.</li>
+        <li>Tools to identify and compare similar loss/waste patterns.</li>
+      </ul>
+
+      <h2>Our Team</h2>
+      <div class="abline"></div>
+      <p>
+        A dedicated group of developers and researchers with a passion for
+        sustainability and technology.
+      </p>
+
+      <h2>Why It Matters</h2>
+      <div class="abline"></div>
+      <p>
+        Reducing food loss and waste helps combat climate change, enhance food
+        security, and preserve resources.
+      </p>
+    </div>
+    <main class="container" id="content"></main>
+  </body>
+  <footer th:replace="templates/components/footer.html :: footer"></footer>
+  <script th:src="@{progressbar.js}"></script>
+  <script th:src="@{barchart.js}"></script>
+</html>

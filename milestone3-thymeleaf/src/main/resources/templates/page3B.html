@@ -1,20 +1,152 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Page3B</title>
+    <title>Locations with Similar Food Loss</title>
     <link rel="stylesheet" type="text/css" href="common.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="task3b.css" />
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
   </head>
   <body>
-    <div>
-      <header th:replace="templates/components/navbar.html :: navbar"></header>
+    <header th:replace="templates/components/navbar.html :: navbar"></header>
+    <div class="container">
+      <div class="content-section">
+        <div class="text-center">
+          <h1 class="fs-primary-heading fw-bold">
+            Identify food group with Similar Food Loss n Waste %
+          </h1>
+        </div>
+      </div>
     </div>
-    <div id="progress-container">
-      <div id="progress-bar"></div>
+    <div class="input-container">
+      <form id="form" action="/page3B.html" method="post">
+        <div class="input-group">
+          <label for="select-cpc-code">Select Food Commodity:</label>
+          <select
+            id="select-cpc-code"
+            name="commodityCode"
+            th:field="*{commodityCode}"
+          >
+            <option value="" disabled selected>
+              Choose the food commodity
+            </option>
+            <option
+              th:each="cpcCode : ${cpcCodes}"
+              th:value="${cpcCode.cpc_code}"
+              th:text="${cpcCode.cpc_code} + ' - ' + ${cpcCode.descriptor}"
+            ></option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="select-similarity-metric">Select Similarity Metric:</label>
+          <select
+            id="select-similarity-metric"
+            name="similarityMetric"
+            th:field="*{similarityMetric}"
+          >
+            <option value="" disabled selected>Select Similarity Metric</option>
+            <option value="avg">Average Loss</option>
+            <option value="min">Minimum Loss</option>
+            <option value="max">Maximum Loss</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="select-similarity-metric">Select order:</label>
+          <select
+            id="sort"
+            name="sort"
+            th:field="*{sort}"
+          >
+            <option value="" disabled selected>Select Order</option>
+            <option value="asc">Order by asc</option>
+            <option value="desc">Order by desc</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="limit">Enter limit number:</label>
+          <input
+            id="limit"
+            name="limit"
+            type="number"
+            placeholder=" Enter limit number: "
+            th:field="*{limit}"
+          />
+        </div>
+
+        <div class="button-group">
+          <button type="submit" id="generate">Generate</button>
+        </div>
+      </form>
     </div>
-    <main class="container" id="content">
-    </main>
+
+    <div
+      class="data-table-container"
+      th:if="${not #lists.isEmpty(similarGroups)}"
+    >
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Group Name</th>
+            <th th:text="${similarityMetric}"></th>
+            <th>Similarity Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="group, iterStat : ${similarGroups}">
+            <td
+              th:id="'group-name-' + ${iterStat.index}"
+              th:text="${group.group_name}"
+            >
+            </td>
+            <td
+              th:id="'min-loss-' + ${iterStat.index}"
+              th:text="${group.value}"
+            >
+            </td>
+            <td
+              th:id="'similarity-score-' + ${iterStat.index}"
+              th:text="${group.similarity_score}"
+            >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer th:replace="templates/components/footer.html :: footer"></footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('td[id^="group-name-"]').forEach(function (element) {
+          tippy(element, {
+            content: element.textContent,
+          });
+        });
+
+        
+        const formElements = ['select-cpc-code', 'select-similarity-metric', 'sort', 'limit'];
+        formElements.forEach(id => {
+          const element = document.getElementById(id);
+          if (localStorage.getItem(id)) {
+            element.value = localStorage.getItem(id);
+          }
+        });
+
+        
+        formElements.forEach(id => {
+          document.getElementById(id).addEventListener('change', function() {
+            localStorage.setItem(id, this.value);
+          });
+        });
+      });
+
+      const form = document.querySelector('#form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        form.submit(); 
+      });
+    </script>
   </body>
-  <footer th:replace="templates/components/footer.html :: footer"></footer>
-  <script th:src="@{progressbar.js}"></script>
-  <script th:src="@{barchart.js}"></script>
 </html>

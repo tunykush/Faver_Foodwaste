@@ -3,7 +3,8 @@ package app.dto;
 public class Task2B {
 
     private String commodity;
-    private Integer year;
+    private double start;
+    private double end;
     private Double lossPercentage;
     private String activity;
     private String foodSupplyStage;
@@ -11,11 +12,12 @@ public class Task2B {
 
     public Task2B() {}
 
-    public Task2B( String commodity, Integer year, Double lossPercentage,
+    public Task2B( String commodity, double start, double end, Double lossPercentage,
     String activity, String foodSupplyStage,
     String causeOffLoss) {
         this.commodity = commodity;
-        this.year = year;
+        this.start = start;
+        this.end = end;
         this.lossPercentage = lossPercentage;
         this.activity = activity;
         this.foodSupplyStage = foodSupplyStage;
@@ -37,8 +39,11 @@ public class Task2B {
     public Double getLossPercentage() {
         return lossPercentage;
     }
-    public Integer getYear() {
-        return year;
+    public double getStart() {
+        return start;
+    }
+    public double getEnd() {
+        return end;
     }
     public void setActivity(String activity) {
         this.activity = activity;
@@ -55,7 +60,10 @@ public class Task2B {
     public void setLossPercentage(Double lossPercentage) {
         this.lossPercentage = lossPercentage;
     }
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setStart(double x) {
+        this.start = x;
+    }
+    public void setEnd(double x) {
+        this.end = x;
     }
 }

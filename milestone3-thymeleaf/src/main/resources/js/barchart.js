@@ -8,7 +8,7 @@ const rating = document.getElementsByClassName('rating')[0];
           }
   
           const counter = document.querySelector('.counter');
-          counter.innerText = 61.1;
+          counter.innerText = 9.9;
   
           const target = +counter.getAttribute('data-target');
   

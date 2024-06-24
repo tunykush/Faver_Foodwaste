@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url(footer.css);
+@import url(homesec1.css);
+@import url(navbar.css);
+@import url(style.css);
+@import url(barchart.css);
+@import url(loadbar.css);
+@import url(task3b.css);
+:root {
+  --header-height: 3.5rem;
+
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+   :root {
+     --normal-font-size: 1rem;
+   }
+ }
+
+ 
+
+ 
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial;
+   padding: 10px;
+   background: #f1f1f1;
+}
+
+.header {
+   padding: 10px;
+   text-align: center;
+   background-color: #cccccc;
+   color: #000000;
+}
+
+.header h1 {
+   font-size: 50px;
+}
+
+
+img.top-image {
+   vertical-align: middle;
+}
+
+.topnav {
+   overflow: hidden;
+   background-color: #333;
+ }
+ 
+ .topnav a {
+   float: left;
+   display: block;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+ 
+ .topnav a:hover {
+   background-color: #ddd;
+   color: black;
+ }
+ 
+ .content {
+   background-color: #ddd;
+   padding: 10px;
+ }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+.eventAction {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+
+.ctrl-btn {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  padding: 10px 20px;
+  width: 200px;
+  background-color: #6c63ff;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.ctrl-btn:hover {
+  background-color: #554fd8;
+}
+
+.filter-choice {
+  font-weight: 300;
+}
+
+.title {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+}
+ 
+.title-content {
+  font-size: 14px;
+}
+
+.year-group-input {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.filter-section {
+  color: rgb(65, 65, 65);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  max-width: 200px;
+  min-height: 60px;
+  height: auto;
+  width: auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  margin-top: 13px;
+  gap: 5px;
+}
+
+.main-content {
+  margin: 20px;
+  gap: 20px;
+  display: flex;
+}
+
+.filter-group {
+  width: 200px;
+  font-size: 12px;
+}
+
+.option-input {
+  font-size: 12px;
+  height: 25px;
+  padding: 0;
+  width: 111px;
+}
+
+.option-input option {
+  color: white;
+  background-color: #000000;
+}
+
+.group {
+  align-items: flex-start;
+}
+
+.group-label {
+  margin-top: 9px;
+}
+
+.group-option {
+  font-size: 12px;
+}
+
+.sort {
+  background-color: rgb(102, 102, 102);
+}
+
+.submit-icon {
+  width: 15px;
+}

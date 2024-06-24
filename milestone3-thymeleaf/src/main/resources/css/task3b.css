@@ -1,0 +1,130 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content-section {
+    text-align: center;
+}
+
+.form-container {
+    background-color: #e0e0e0;
+    padding: 2rem;
+    border-radius: 0.625rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 60rem;
+    margin: 2rem auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.input-group label {
+    margin-bottom: 0.5rem;
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.625rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
+    max-width: 100%;
+    width: 100%;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group label {
+    margin-bottom: 0.5rem;
+}
+
+.radio-group div {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-row {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+button#generate {
+    padding: 0.625rem 1.25rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+}
+
+button#generate:hover {
+    background-color: #333;
+}
+
+.data-table-container {
+    display: flex-start ;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    max-width: 50px;
+    border: 1px solid #ddd;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.data-table a:hover {
+    text-decoration: underline;
+}
+
+.data-table th, .data-table td {
+    white-space: nowrap;
+}

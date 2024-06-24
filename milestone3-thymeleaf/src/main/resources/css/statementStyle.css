@@ -1,76 +1,172 @@
 .content {
-    padding-top: 6rem;
-    padding-left: 6rem;
-  }
-  
-  #mission-img:hover {
-    transform: rotate(360deg);
-  }
-  
-  #mission-img {
-    transition: 1s;
-  }
-  
-  .user-text:hover {
-    transform: scale(1.3);
-  }
-  
-  .user-img:hover {
-    transform: scale(1.3);
-  }
-  
-  .user-text {
-    transition: transform .2s;
-    text-align: left;
-  }
-  
-  .user-img {
-    transition: transform .2s;
-  }
-  
-  
-  
-  
-  
-  
+  padding-top: 6rem;
+  padding-left: 6rem;
+}
+
+#mission-img:hover {
+  transform: rotate(360deg);
+}
+
+#mission-img {
+  transition: 1s;
+}
+
+.user-text:hover {
+  transform: scale(1.3);
+}
+
+.user-img:hover {
+  transform: scale(1.3);
+}
+
+.user-text {
+  transition: transform 1s;
+  text-align: left;
+}
+
+.user-img {
+  transition: transform 1s;
+}
+
+.content-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 7rem 0;
+}
+
+.text-side {
+  flex: 1;
+  max-width: 50%;
+}
+
+.image-side {
+  flex: 1;
+  max-width: 50%;
+  text-align: center;
+}
+
+.image-side img {
+  width: 75%;
+  max-width: 400px;
+  height: auto;
+  padding-left: 10rem;
+}
+
+@media (max-width: 768px) {
   .content-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 7rem 0;
-  }
-  
-  .text-side {
-    flex: 1;
-    max-width: 50%;
-  }
-  
-  .image-side {
-    flex: 1;
-    max-width: 50%;
+    flex-direction: column;
     text-align: center;
   }
-  
+
+  .text-side,
+  .image-side {
+    max-width: 100%;
+  }
+
   .image-side img {
-    width: 75%; /* Adjusted to use full width of the container */
-    max-width: 400px; /* Max width for larger displays */
-    height: auto; /* Maintain aspect ratio */
-    padding-left: 10rem;
+    width: 100%;
   }
-  
-  @media (max-width: 768px) {
-    .content-section {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .text-side,
-    .image-side {
-      max-width: 100%;
-    }
-  
-    .image-side img {
-      width: 100%;
-    }
+}
+
+.team-members-container {
+  padding: 2rem 6rem;
+  background-color: #f9f9f9;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 1s;
+}
+
+.team-members-container:hover {
+  transform: scale(1.3);
+}
+
+.team-members-container .content-section {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.team-members-container .content-section:last-child {
+  border-bottom: none;
+}
+
+.team-members-container .text-side {
+  text-align: left;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .team-members-container {
+    padding: 1rem 2rem;
   }
+
+  .team-members-container .text-side {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.food-loss-waste-section {
+  padding: 2rem 6rem;
+  background-color: #F1F1F1;
+  margin-top: 2rem;
+  border-radius: 8px;
+}
+
+.food-loss-waste-section .content-section {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.food-loss-waste-section .food-loss,
+.food-loss-waste-section .food-waste {
+  margin: 1rem 0;
+}
+
+.food-loss-waste-section .food-image {
+  width: 50%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.global-issues {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.issues-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.issues-grid .issue {
+  text-align: center;
+}
+
+.issues-grid .issue img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.food-loss-container {
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.food-loss-title {
+  white-space: nowrap;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}

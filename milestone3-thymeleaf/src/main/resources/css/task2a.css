@@ -126,3 +126,19 @@ button#generate:hover {
 .data-table td {
     white-space: nowrap;
 }
+
+.form-container select[multiple] {
+    height: auto;
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+#no-data-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: red;
+    padding: 1em 0;
+}

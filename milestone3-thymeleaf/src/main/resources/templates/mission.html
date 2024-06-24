@@ -32,6 +32,22 @@
             />
           </div>
         </div>
+        <hr style="width: 100%; text-align: left; margin-left: 0" />
+        <h2 class="fs-primary-heading fw-bold food-loss-title" style="padding-top: 2rem;">Food Loss vs. Food Waste</h2>
+        <div class="food-loss-waste-section">
+          <div class="content-section">
+            <div class="text-side">
+              
+              <div class="food-loss">
+                <p style="font-size: 1.3rem;"><span style="font-weight: bold;">Food Loss</span> refers to edible food that is discarded during the food supply stage before it reaches retail and consumers.</p>
+              </div>
+              <h3 style="font-weight: bold; text-decoration: underline; font-size: 1.3rem;">Whereas</h3>
+              <div class="food-waste">
+                <p style="font-size: 1.3rem;"><span style="font-weight: bold;">Food Waste</span> refers to discarded food products at the retail and consumer levels.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <hr style="width: 100%; text-align: left; margin-left: 0" />
         <div class="fs-primary-heading fw-bold">Our Users</div>
@@ -66,6 +82,26 @@
             </div>
           </div>
         </div>
+
+       
+        
+
+        <div class="fs-primary-heading fw-bold">Team Members</div>
+
+        <div class="container team-members-container" th:each="student, iterStat: ${students}">
+          <div class="content-section">
+            <div class="">
+              <p style="font-size: 1.3rem">
+              <span style="font-weight: bold; text-decoration: underline;">Student </span><span style="font-weight: bold; text-decoration: underline;" th:text="${iterStat.count}"></span><br/>
+               <span style="font-weight: bold;">Name: </span>
+               <span th:text="${student.name}"></span><br/>
+               <span style="font-weight: bold;">StudentID: </span>
+               <span th:text="${student.studentID}"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </body>

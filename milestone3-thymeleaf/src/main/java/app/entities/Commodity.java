@@ -34,7 +34,7 @@ public class Commodity {
     public void setDescriptor(String descriptor) {
         this.descriptor = descriptor;
     }
-    
+
     public void setGroup_code(String group_code) {
         this.group_code = group_code;
     }

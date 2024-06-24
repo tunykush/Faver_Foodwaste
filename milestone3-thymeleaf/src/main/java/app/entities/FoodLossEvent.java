@@ -1,127 +1,119 @@
 package app.entities;
 
-public class FoodLossEvent {
+import java.util.List;
 
-    private String m49Code;
-    private String country;
-    private String region;
-    private Double cpc_code;
+public class FoodLossEvent {
+    private List<String> country;
+    private String startLoss;
+    private String endLoss;
+    private String startYear;
+    private String endYear;
+    private String diffLoss;
     private String commodity;
-    private Integer year;
-    private Double lossPercentage;
     private String activity;
     private String foodSupplyStage;
-    private String causeOffLoss;
+    private String causeOfLoss;
 
-    public FoodLossEvent(String m49Code,
-            String country, String region,
-            Double cpc_code, String commodity,
-            Integer year, Double lossPercentage,
-            String activity, String foodSupplyStage,
-            String causeOffLoss) {
-
-        this.m49Code = m49Code;
+    public FoodLossEvent(List<String> country, String startLoss, String endLoss, String diffLoss, String startYear, String endYear,
+                         String commodity, String activity, String foodSupplyStage, String causeOfLoss) {
         this.country = country;
-        this.region = region;
-        this.cpc_code = cpc_code;
+        this.startLoss = startLoss;
+        this.endLoss = endLoss;
+        this.diffLoss = diffLoss;
+        this.startYear = startYear;
+        this.endYear = endYear;
         this.commodity = commodity;
-        this.year = year;
-        this.lossPercentage = lossPercentage;
-        this.activity = foodSupplyStage;
-        this.causeOffLoss = causeOffLoss;
+        this.activity = activity;
+        this.foodSupplyStage = foodSupplyStage;
+        this.causeOfLoss = causeOfLoss;
     }
 
-    public FoodLossEvent( String commodity, Integer year, Double lossPercentage,
-    String activity, String foodSupplyStage,
-    String causeOffLoss) {
-        this.commodity = commodity;
-        this.year = year;
-        this.lossPercentage = lossPercentage;
-        this.activity = foodSupplyStage;
-        this.causeOffLoss = causeOffLoss;
-    }
-
-    public FoodLossEvent() {
-    }
-
-    public String getActivity() {
-        return activity;
-    }
-
-    public String getCauseOffLoss() {
-        return causeOffLoss;
-    }
-
-    public String getCommodity() {
-        return commodity;
-    }
-
-    public String getCountry() {
+    // Getters and setters for all fields
+    public List<String> getCountry() {
         return country;
     }
 
-    public Double getCpc_code() {
-        return cpc_code;
+    public void setCountry(List<String> country) {
+        this.country = country;
     }
 
-    public String getFoodSupplyStage() {
-        return foodSupplyStage;
+    public String getstartLoss() {
+        return startLoss;
     }
 
-    public Double getLossPercentage() {
-        return lossPercentage;
+    public void setstartLoss(String startLoss) {
+        this.startLoss = startLoss;
     }
 
-    public String getM49Code() {
-        return m49Code;
+    public String getendLoss() {
+        return endLoss;
     }
 
-    public String getRegion() {
-        return region;
+    public void setendLoss(String endLoss) {
+        this.endLoss = endLoss;
     }
 
-    public Integer getYear() {
-        return year;
+    public String getDiffLoss() {
+        return diffLoss;
     }
 
-    public void setActivity(String activity) {
-        this.activity = activity;
+    public void setDiffLoss(String diffLoss) {
+        this.diffLoss = diffLoss;
     }
 
-    public void setCauseOffLoss(String causeOffLoss) {
-        this.causeOffLoss = causeOffLoss;
+    public String getStartYear() {
+        return startYear;
+    }
+
+
+    public String getEndYear() {
+        return endYear;
+    }
+
+    public void setStartYear(String startYear) {
+        this.startYear = startYear;
+    }
+
+    public void setEndYear(String endYear) {
+        this.endYear = endYear;
+    }
+
+
+    public String getCommodity() {
+        return commodity;
     }
 
     public void setCommodity(String commodity) {
         this.commodity = commodity;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getActivity() {
+        return activity;
     }
 
-    public void setCpc_code(Double cpc_code) {
-        this.cpc_code = cpc_code;
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public String getFoodSupplyStage() {
+        return foodSupplyStage;
     }
 
     public void setFoodSupplyStage(String foodSupplyStage) {
         this.foodSupplyStage = foodSupplyStage;
     }
 
-    public void setLossPercentage(Double lossPercentage) {
-        this.lossPercentage = lossPercentage;
+    public String getCauseOfLoss() {
+        return causeOfLoss;
     }
 
-    public void setM49Code(String m49Code) {
-        this.m49Code = m49Code;
+    public void setCauseOfLoss(String causeOfLoss) {
+        this.causeOfLoss = causeOfLoss;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    @Override
+    public String toString() {
+        String a = "Name: %s Start Loss: %s End Loss: %s, Diff Loss: %s, Commodity: %s, Activity: %s, Supply Stage: %s, Cause: %s".formatted(country, startLoss, endLoss, diffLoss, commodity, activity, foodSupplyStage, causeOfLoss);
+    return a;
     }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
 }
