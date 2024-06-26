@@ -20,19 +20,11 @@ import app.entities.User;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Class for Managing the JDBC Connection to a SQLLite Database.
- * Allows SQL queries to be used with the SQLLite Databse in Java.
- *
- * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
- * @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
- */
 
 public class JDBCConnection {
 
     // Name of database file (contained in database folder)
-    public static final String DATABASE = "jdbc:sqlite:database/foodloss.db";
+    public static final String DATABASE = "jdbc:sqlite:milestone3-lastest/database/foodloss.db";
 
     /**
      * This creates a JDBC Object so we can keep talking to the database

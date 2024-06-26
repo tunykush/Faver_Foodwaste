@@ -10,27 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-/**
- * Stand-alone Java file for processing the database CSV files.
- * <p>
- * You can run this file using the "Run" or "Debug" options
- * from within VSCode. This won't conflict with the web server.
- * <p>
- * This program opens a CSV file from the Food Loss data set
- * and uses JDBC to load up data into the database.
- * <p>
- * To use this program you will need to change:
- * 1. The input file location
- * 2. The output file location
- * <p>
- * This assumes that the CSV files are in the **database** folder.
- * <p>
- * WARNING: This code may take quite a while to run as there could be a lot
- * of SQL insert statments and queries to run!
- *
- * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
- * @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
- */
+
 public class FoodProcessCSV {
 
    // MODIFY these to load/store to/from the correct locations

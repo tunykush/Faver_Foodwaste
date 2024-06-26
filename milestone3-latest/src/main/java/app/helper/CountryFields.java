@@ -1,11 +1,5 @@
 package app.helper;
 
-/*
-* Helper file to keep track of the position of fields in each CSV file 
-* @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
-* @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
-*/
-
 public class CountryFields {
     public static final int M49CODE = 0;
     public static final int COUNTRYNAME  = 1;

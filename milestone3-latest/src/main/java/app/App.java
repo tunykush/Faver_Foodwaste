@@ -11,17 +11,6 @@ import app.controller.PageST3B;
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 
-/**
- * Main Application Class.
- * <p>
- * Running this class as regular java application will start the 
- * Javalin HTTP Server and our web application.
- *
- * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
- * @author Halil Ali, 2024. email: halil.ali@rmit.edu.au
- */
-
 public class App {
 
     public static final int         JAVALIN_PORT    = 7000;
