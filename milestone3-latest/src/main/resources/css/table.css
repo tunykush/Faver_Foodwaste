@@ -18,7 +18,7 @@
    
    main.table {
        width: 85vw;
-       height: 90vh;
+       height: auto;
        background-color: #fff5;
    
        backdrop-filter: blur(7px);

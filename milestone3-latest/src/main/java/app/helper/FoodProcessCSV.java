@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 public class FoodProcessCSV {
 
    // MODIFY these to load/store to/from the correct locations

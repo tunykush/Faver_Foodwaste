@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Food Loss by Country</title>
     <link rel="icon" type="image/svg+xml" th:href="@{/faver logo.svg}" />
@@ -8,189 +8,240 @@
     <link rel="stylesheet" th:href="@{/style.css}" />
     <link rel="stylesheet" th:href="@{/task2a.css}" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
     />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <header th:replace="templates/components/navbar.html :: navbar"></header>
+      <header th:replace="templates/components/navbar.html :: navbar"></header>
     </div>
 
     <div class="container">
-        <div class="content-section">
-            <div class="text-center">
-                <h1 class="fs-primary-heading fw-bold" style="padding-top: 3rem">
-                    Food Loss by Country
-                </h1>
-            </div>
+      <div class="content-section">
+        <div class="text-center">
+          <h1 class="fs-primary-heading fw-bold" style="padding-top: 3rem">
+            Food Loss by Country
+          </h1>
         </div>
+      </div>
     </div>
 
-    <form id="data-form" action="/page2A.html" method="post" onsubmit="generate(event)">
-        <div class="form-container">
-            <div class="input-row">
-                <div class="input-group">
-                    <label for="country">Select Country:</label>
-                    <select id="country" class="country-list" name="country" multiple="multiple">
-                        <th:block th:each="country : ${countries}">
-                            <option th:value="${country.name}" th:text="${country.name}"></option>
-                        </th:block>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="start-year">Start Year:</label>
-                    <select id="start-year" name="start-year">
-                        <option value="">Start Year</option>
-                        <th:block th:each="year : ${years}">
-                            <option th:value="${year.year}" th:text="${year.year}"></option>
-                        </th:block>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="end-year">End Year:</label>
-                    <select id="end-year" name="end-year">
-                        <option value="">End Year</option>
-                        <th:block th:each="year : ${years}">
-                            <option th:value="${year.year}" th:text="${year.year}"></option>
-                        </th:block>
-                    </select>
-                </div>
-            </div>
-
-            <div class="sort-row">
-                <div class="input-group">
-                    <label for="sort-field">Sort By:</label>
-                    <select id="sort-field" name="sort-field">
-                        <option value="start_loss">Start Year Loss</option>
-                        <option value="end_loss">End Year Loss</option>
-                    </select>
-                    <select id="sort-order" name="sort-order">
-                        <option value="ASC">Ascending</option>
-                        <option value="DESC">Descending</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="checkbox-row">
-                <div class="input-group">
-                    <label><input type="checkbox" id="show-commodity"> Show Commodity</label>
-                </div>
-                <div class="input-group">
-                    <label><input type="checkbox" id="show-activity"> Show Activity</label>
-                </div>
-                <div class="input-group">
-                    <label><input type="checkbox" id="show-food-supply-stage"> Show Food Supply Stage</label>
-                </div>
-                <div class="input-group">
-                    <label><input type="checkbox" id="show-cause-of-loss"> Show Cause of Loss</label>
-                </div>
-            </div>
-
-            <div class="button-row">
-                <div class="button-group">
-                    <button id="generate" type="submit">Generate</button>
-                </div>
-            </div>
+    <form
+      id="data-form"
+      action="/page2A.html"
+      method="post"
+      onsubmit="generate(event)"
+    >
+      <div class="form-container">
+        <div class="input-row">
+          <div class="input-group">
+            <label for="country">Select Country:</label>
+            <select
+              id="country"
+              class="country-list"
+              name="country"
+              multiple="multiple"
+              required
+            >
+              <th:block th:each="country : ${countries}">
+                <option
+                  th:value="${country.name}"
+                  th:text="${country.name}"
+                ></option>
+              </th:block>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="start-year">Start Year:</label>
+            <select id="start-year" name="start-year" required>
+              <option value="">Start Year</option>
+              <th:block th:each="year : ${years}">
+                <option th:value="${year.year}" th:text="${year.year}"></option>
+              </th:block>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="end-year">End Year:</label>
+            <select id="end-year" name="end-year" required>
+              <option value="">End Year</option>
+              <th:block th:each="year : ${years}">
+                <option th:value="${year.year}" th:text="${year.year}"></option>
+              </th:block>
+            </select>
+          </div>
         </div>
+
+        <div class="sort-row">
+          <div class="input-group">
+            <label for="sort-field">Sort By:</label>
+            <select id="sort-field" name="sort-field" required>
+              <option value="start_loss">Start Year Loss</option>
+              <option value="end_loss">End Year Loss</option>
+            </select>
+            <select id="sort-order" name="sort-order" required>
+              <option value="ASC">Ascending</option>
+              <option value="DESC">Descending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkbox-row">
+          <div class="input-group">
+            <label
+              ><input type="checkbox" id="show-commodity" /> Show
+              Commodity</label
+            >
+          </div>
+          <div class="input-group">
+            <label
+              ><input type="checkbox" id="show-activity" /> Show Activity</label
+            >
+          </div>
+          <div class="input-group">
+            <label
+              ><input type="checkbox" id="show-food-supply-stage" /> Show Food
+              Supply Stage</label
+            >
+          </div>
+          <div class="input-group">
+            <label
+              ><input type="checkbox" id="show-cause-of-loss" /> Show Cause of
+              Loss</label
+            >
+          </div>
+        </div>
+
+        <div class="button-row">
+          <div class="button-group">
+            <button id="generate" type="submit">Generate</button>
+          </div>
+        </div>
+      </div>
     </form>
 
     <div class="text-center">
-        <h1 class="fs-primary fw-bold" style="padding-top: 1rem; padding-bottom: 0rem;" th:text="'Table for all selected countries between ' + ${dates[0]} + ' and ' + ${dates[1]}"></h1>
+      <h1
+        class="fs-primary fw-bold"
+        style="padding-top: 1rem; padding-bottom: 0rem"
+        th:text="'Table for all selected countries between ' + ${dates[0]} + ' and ' + ${dates[1]}"
+      ></h1>
     </div>
     <div class="data-table-container">
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Country Name</th>
-                    <th>Start Loss</th>
-                    <th>End Loss</th>
-                    <th>Change in Loss</th>
-                    <th class="commodity-col">Commodity</th>
-                    <th class="activity-col">Activity</th>
-                    <th class="food-supply-stage-col">Food Supply Stage</th>
-                    <th class="cause-of-loss-col">Cause of Loss</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="event : ${events}">
-                    <td><span th:text="${event.country[0]}">Country</span></td>
-                    <td><span th:text="${event.startLoss}">Start Loss</span></td>
-                    <td><span th:text="${event.endLoss}">End Loss</span></td>
-                    <td><span th:text="${event.diffLoss}">Change in Loss</span></td>
-                    <td class="commodity-col"><span th:text="${event.commodity} ?: 'Data not available'">Commodity</span></td>
-                    <td class="activity-col"><span th:text="${event.activity} ?: 'Data not available'">Activity</span></td>
-                    <td class="food-supply-stage-col"><span th:text="${event.foodSupplyStage} ?: 'Data not available'">Food Supply Stage</span></td>
-                    <td class="cause-of-loss-col"><span th:text="${event.causeOfLoss} ?: 'Data not available'">Cause of Loss</span></td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Country Name</th>
+            <th>Start Loss</th>
+            <th>End Loss</th>
+            <th>Change in Loss</th>
+            <th class="commodity-col">Commodity</th>
+            <th class="activity-col">Activity</th>
+            <th class="food-supply-stage-col">Food Supply Stage</th>
+            <th class="cause-of-loss-col">Cause of Loss</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="event : ${events}">
+            <td><span th:text="${event.country[0]}">Country</span></td>
+            <td><span th:text="${event.startLoss}">Start Loss</span></td>
+            <td><span th:text="${event.endLoss}">End Loss</span></td>
+            <td><span th:text="${event.diffLoss}">Change in Loss</span></td>
+            <td class="commodity-col">
+              <span th:text="${event.commodity} ?: 'Data not available'"
+                >Commodity</span
+              >
+            </td>
+            <td class="activity-col">
+              <span th:text="${event.activity} ?: 'Data not available'"
+                >Activity</span
+              >
+            </td>
+            <td class="food-supply-stage-col">
+              <span th:text="${event.foodSupplyStage} ?: 'Data not available'"
+                >Food Supply Stage</span
+              >
+            </td>
+            <td class="cause-of-loss-col">
+              <span th:text="${event.causeOfLoss} ?: 'Data not available'"
+                >Cause of Loss</span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div id="no-data-message" class="hidden">No data found for the selected input.</div>
+    <div id="no-data-message" class="hidden">
+      No data found for the selected input.
+    </div>
 
     <footer th:replace="templates/components/footer.html :: footer"></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#country').select2({
-                placeholder: "Select Countries...",
-                width: 'resolve'
-            });
-
-            // Function to show/hide columns based on checkboxes
-            function updateTableColumns() {
-                let showCommodity = $('#show-commodity').is(':checked');
-                let showActivity = $('#show-activity').is(':checked');
-                let showFoodSupplyStage = $('#show-food-supply-stage').is(':checked');
-                let showCauseOfLoss = $('#show-cause-of-loss').is(':checked');
-
-                $('.commodity-col').toggle(showCommodity);
-                $('.activity-col').toggle(showActivity);
-                $('.food-supply-stage-col').toggle(showFoodSupplyStage);
-                $('.cause-of-loss-col').toggle(showCauseOfLoss);
-            }
-
-            // Attach change event to checkboxes
-            $('#show-commodity, #show-activity, #show-food-supply-stage, #show-cause-of-loss').change(updateTableColumns);
-
-            // Initial call to hide columns
-            updateTableColumns();
-
-            // Function to check if table has data and show/hide the no-data message
-            function checkTableData() {
-                let rowCount = $('table.data-table tbody tr').length;
-                if (rowCount === 0) {
-                    $('#no-data-message').removeClass('hidden');
-                } else {
-                    $('#no-data-message').addClass('hidden');
-                }
-            }
-
-            // On form submission, hide columns and uncheck checkboxes
-            $('#data-form').on('submit', function(event) {
-
-                // Hide all columns initially
-                $('.commodity-col').hide();
-                $('.activity-col').hide();
-                $('.food-supply-stage-col').hide();
-                $('.cause-of-loss-col').hide();
-
-                // Uncheck all checkboxes
-                $('#show-commodity').prop('checked', false);
-                $('#show-activity').prop('checked', false);
-                $('#show-food-supply-stage').prop('checked', false);
-                $('#show-cause-of-loss').prop('checked', false);
-
-                // Check table data and show/hide the no-data message
-                checkTableData();
-            });
-
-            // Initial check for table data
-            checkTableData();
+      $(document).ready(function () {
+        $("#country").select2({
+          placeholder: "Select Countries...",
+          width: "resolve",
         });
+
+        // Function to show/hide columns based on checkboxes
+        function updateTableColumns() {
+          let showCommodity = $("#show-commodity").is(":checked");
+          let showActivity = $("#show-activity").is(":checked");
+          let showFoodSupplyStage = $("#show-food-supply-stage").is(":checked");
+          let showCauseOfLoss = $("#show-cause-of-loss").is(":checked");
+
+          $(".commodity-col").toggle(showCommodity);
+          $(".activity-col").toggle(showActivity);
+          $(".food-supply-stage-col").toggle(showFoodSupplyStage);
+          $(".cause-of-loss-col").toggle(showCauseOfLoss);
+        }
+
+        // Attach change event to checkboxes
+        $(
+          "#show-commodity, #show-activity, #show-food-supply-stage, #show-cause-of-loss"
+        ).change(updateTableColumns);
+
+        // Initial call to hide columns
+        updateTableColumns();
+
+        // Function to check if table has data and show/hide the no-data message
+        function checkTableData() {
+          let rowCount = $("table.data-table tbody tr").length;
+          if (rowCount === 0) {
+            $("#no-data-message").removeClass("hidden");
+          } else {
+            $("#no-data-message").addClass("hidden");
+          }
+        }
+
+        // On form submission, hide columns and uncheck checkboxes
+        $("#data-form").on("submit", function (event) {
+          // Hide all columns initially
+          $(".commodity-col").hide();
+          $(".activity-col").hide();
+          $(".food-supply-stage-col").hide();
+          $(".cause-of-loss-col").hide();
+
+          // Uncheck all checkboxes
+          $("#show-commodity").prop("checked", false);
+          $("#show-activity").prop("checked", false);
+          $("#show-food-supply-stage").prop("checked", false);
+          $("#show-cause-of-loss").prop("checked", false);
+
+          // Check table data and show/hide the no-data message
+          checkTableData();
+        });
+
+        // Initial check for table data
+        checkTableData();
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -39,7 +39,9 @@
           </select>
         </div>
         <div class="input-group">
-          <label for="select-similarity-metric">Select Similarity Metric:</label>
+          <label for="select-similarity-metric"
+            >Select Similarity Metric:</label
+          >
           <select
             id="select-similarity-metric"
             name="similarityMetric"
@@ -54,11 +56,7 @@
 
         <div class="input-group">
           <label for="select-similarity-metric">Select order:</label>
-          <select
-            id="sort"
-            name="sort"
-            th:field="*{sort}"
-          >
+          <select id="sort" name="sort" th:field="*{sort}">
             <option value="" disabled selected>Select Order</option>
             <option value="asc">Order by asc</option>
             <option value="desc">Order by desc</option>
@@ -99,18 +97,15 @@
             <td
               th:id="'group-name-' + ${iterStat.index}"
               th:text="${group.group_name}"
-            >
-            </td>
+            ></td>
             <td
               th:id="'min-loss-' + ${iterStat.index}"
               th:text="${group.value}"
-            >
-            </td>
+            ></td>
             <td
               th:id="'similarity-score-' + ${iterStat.index}"
               th:text="${group.similarity_score}"
-            >
-            </td>
+            ></td>
           </tr>
         </tbody>
       </table>
@@ -118,34 +113,39 @@
     <footer th:replace="templates/components/footer.html :: footer"></footer>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll('td[id^="group-name-"]').forEach(function (element) {
-          tippy(element, {
-            content: element.textContent,
+        document
+          .querySelectorAll('td[id^="group-name-"]')
+          .forEach(function (element) {
+            tippy(element, {
+              content: element.textContent,
+            });
           });
-        });
 
-        
-        const formElements = ['select-cpc-code', 'select-similarity-metric', 'sort', 'limit'];
-        formElements.forEach(id => {
+        const formElements = [
+          "select-cpc-code",
+          "select-similarity-metric",
+          "sort",
+          "limit",
+        ];
+        formElements.forEach((id) => {
           const element = document.getElementById(id);
           if (localStorage.getItem(id)) {
             element.value = localStorage.getItem(id);
           }
         });
 
-        
-        formElements.forEach(id => {
-          document.getElementById(id).addEventListener('change', function() {
+        formElements.forEach((id) => {
+          document.getElementById(id).addEventListener("change", function () {
             localStorage.setItem(id, this.value);
           });
         });
       });
 
-      const form = document.querySelector('#form');
-      form.addEventListener('submit', (event) => {
+      const form = document.querySelector("#form");
+      form.addEventListener("submit", (event) => {
         event.preventDefault();
-        
-        form.submit(); 
+
+        form.submit();
       });
     </script>
   </body>

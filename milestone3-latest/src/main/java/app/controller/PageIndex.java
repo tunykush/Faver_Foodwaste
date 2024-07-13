@@ -10,7 +10,6 @@ import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 
-
 public class PageIndex implements Handler {
 
     // URL of this page relative to http://localhost:7001/
